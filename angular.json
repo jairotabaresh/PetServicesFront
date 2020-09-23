@@ -24,9 +24,35 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/style.css",
+              "src/assets/css/responsive.css",
+              "src/assets/css/custom.css",
+              "src/assets/css/baguetteBox.min.css",
+              "src/assets/css/classic.css",
+              "src/assets/css/classic.date.css",
+              "src/assets/css/classic.time.css",
+              "src/assets/css/animate.css",
+              "src/assets/css/superslides.css",
+              "src/assets/css/font-awesome.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/baguetteBox.min.js",
+              "src/assets/js/jquery-3.2.1.min.js",
+              "src/assets/js/picker.js",
+              "src/assets/js/picker.date.js",
+              "src/assets/js/picker.time.js",
+              "src/assets/js/isotope.min.js",
+              "src/assets/js/legacy.js",
+              "src/assets/js/form-validator.min.js",
+              "src/assets/js/contact-form-script.js",
+              "src/assets/js/images-loded.min.js",
+              "src/assets/js/popper.min.js",
+              "src/assets/js/jquery.superslides.min.js",
+              "src/assets/js/jquery.mapify.js",
+              "src/assets/js/custom.js",
+              "src/assets/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +145,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "PetService"
+    }
+  },
+  "defaultProject": "PetService",
+  "cli": {
+    "analytics": "395c1b18-90a2-47dd-b58b-edffe4964c58"
+  }
 }
