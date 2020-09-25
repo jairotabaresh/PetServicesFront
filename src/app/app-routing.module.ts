@@ -11,6 +11,12 @@ import { BlogComponent } from './blog/blog.component';
 import { BlogdetailsComponent } from './blogdetails/blogdetails.component';
 import { ContactComponent } from './contact/contact.component';
 
+
+//Imports de modulo de mascotas
+import { CrearMascotaComponent } from './Mascotas/crear-mascota/crear-mascota.component';
+import { ModificarMascotaComponent } from './Mascotas/modificar-mascota/modificar-mascota.component';
+import { MascotaComponent } from './Mascotas/mascota/mascota.component';
+
 const routes: Routes = [
   {
     path: 'entry',
@@ -52,6 +58,23 @@ const routes: Routes = [
     path: 'contact',
     component: ContactComponent,
   },
+
+
+   //rutas para Modulo de mascotas
+  {
+    path: 'mascota',
+    component: MascotaComponent,
+  },
+  {
+    path: 'crearMascota',
+    component: CrearMascotaComponent,
+  },
+  {
+    path: 'modificarMascota',
+    component: ModificarMascotaComponent,
+  },
+
+
   {
     path: '',
     redirectTo: 'app', pathMatch: 'full'
@@ -59,7 +82,8 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'app', pathMatch: 'full'
-  }
+  },
+
 ];
 
 @NgModule({
