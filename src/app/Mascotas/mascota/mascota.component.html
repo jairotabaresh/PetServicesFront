@@ -10,16 +10,45 @@
 </div>
 <!-- End All Pages -->
 
-<section class="py-3 mb-3 bg-light">
-    <div class = "container">
+<!-- Boton y Formulario flotante de crear mascota -->
+<app-crear-mascota></app-crear-mascota>
+<!--Formulario para modificar una mascota-->
+<app-modificar-mascota></app-modificar-mascota>
+<!-- Listado de mascotas -->
+<app-listar-mascotas></app-listar-mascotas>
+
+<!-- Start Contact info -->
+<div class="contact-imfo-box">
+    <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <a [routerLink] = "'/crearMascota'" class="btn text-white" style="background-color: #8DD072"
-                   data-toggle="modal" data-target="#crearMascota">
-                    <i class="fas fa-user-plus"></i>
-                    Crear mascota  
-                </a>
+            <div class="col-md-4">
+                <i class="fa fa-volume-control-phone"></i>
+                <div class="overflow-hidden">
+                    <h4>Phone</h4>
+                    <p class="lead">
+                        +01 123-456-4590
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <i class="fa fa-envelope"></i>
+                <div class="overflow-hidden">
+                    <h4>Email</h4>
+                    <p class="lead">
+                        yourmail@gmail.com
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <i class="fa fa-map-marker"></i>
+                <div class="overflow-hidden">
+                    <h4>Location</h4>
+                    <p class="lead">
+                        800, Lorem Street, US
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-</section>
+</div>
+<!-- End Contact info -->

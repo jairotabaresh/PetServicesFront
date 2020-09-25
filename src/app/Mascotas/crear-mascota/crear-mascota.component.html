@@ -1,47 +1,92 @@
-<app-mascota></app-mascota>
-
+<!--Formulario flotante de crear mascota-->
+<section class="py-3 mb-3 bg-light">
+    <div class = "container-fluid">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <a [routerLink] = "'/mascota'" class="btn text-white" style="background-color: #8DD072"
+                   data-toggle="modal" data-target="#crearMascota">
+                    <i class="fas fa-user-plus"></i>
+                    Crear mascota  
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 <div id="crearMascota" class="modal fade">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
-			<div class="modal-header bg-dark text-success">
+			<div class="modal-header bg-light text-success">
 				<div class="container text-center">
-					<h1>Crear mascota</h1>
-					<form id="">
+					<h1>Ingresar mascota</h1>
+					<form action="" method="get">
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" class="form-control" id="" name="" placeholder="" required data-error="Please enter your name">
+									<input type="text" class="form-control" id="mascota.nombre" name="mascota.nombre" placeholder="Nombre de tu mascota" required data-error="Entra el nombre de tu mascota">
 									<div class="help-block with-errors"></div>
 								</div>                                 
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" placeholder="" id="" class="form-control" name="" required data-error="Please enter your email">
+									<input type="text" class="form-control" id="mascota.especie" name="mascota.especie" placeholder="Especie" required data-error="Entra la especie de tu mascota">
+									<div class="help-block with-errors"></div>
+								</div>                                 
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<input type="text" class="form-control" id="mascota.raza" name="mascota.raza" placeholder="Raza">
 									<div class="help-block with-errors"></div>
 								</div> 
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<select class="custom-select d-block form-control" id="" required data-error="Please Select Person">
-									  <option disabled selected>Please Select Person*</option>
-									  <option value="1">1</option>
-									  <option value="2">2</option>
-									  <option value="3">3</option>
-									  <option value="4">4</option>
-									  <option value="5">5</option>
+									<input type="number" class="form-control" id="mascota.edad" name="mascota.edad" placeholder="Edad de tu mascota" required data-error="Ingresa la edad de tu mascota">
+									<div class="help-block with-errors"></div>
+								</div> 
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<select class="custom-select d-block form-control" id="mascota.usuario.id" required data-error="Ingresa el usuario al cual pertenece esta mascota">
+									  <option disabled selected>Ingresa el usuario al cual pertenece esta mascota</option>
+									  <option value="1026150352 - Andres Camilo Diaz Mora">1026150352 - Andres Camilo Diaz Mora</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
+									  <option value="2226150352 - Juan Roberto Vargas">2226150352  - Juan Roberto Vargas</option>
 									</select>
 									<div class="help-block with-errors"></div>
 								</div> 
 							</div>
 							<div class="col-md-12">
-								<div class="form-group"> 
-									<textarea class="form-control" id="" placeholder="" rows="4" data-error="Write your message" required></textarea>
-									<div class="help-block with-errors"></div>
-								</div>
 								<div class="submit-button text-center">
-									<button class="btn btn-common" id="" type="submit">Guardar</button>
-									<div id="" class="h3 text-center hidden"></div> 
-									<div class="clearfix"></div> 
+									<button class="btn btn-common" id="guardar" name="guardar" type="submit">
+										Guardar
+									</button>
+									<div id="" class="h3 text-center hidden">
+									</div> 
+									<div class="clearfix">
+									</div> 
 								</div>
 							</div>
 						</div>            

@@ -13,8 +13,6 @@ import { ContactComponent } from './contact/contact.component';
 
 
 //Imports de modulo de mascotas
-import { CrearMascotaComponent } from './Mascotas/crear-mascota/crear-mascota.component';
-import { ModificarMascotaComponent } from './Mascotas/modificar-mascota/modificar-mascota.component';
 import { MascotaComponent } from './Mascotas/mascota/mascota.component';
 
 const routes: Routes = [
@@ -64,14 +62,6 @@ const routes: Routes = [
   {
     path: 'mascota',
     component: MascotaComponent,
-  },
-  {
-    path: 'crearMascota',
-    component: CrearMascotaComponent,
-  },
-  {
-    path: 'modificarMascota',
-    component: ModificarMascotaComponent,
   },
 
 

@@ -17,6 +17,7 @@ import { ContactComponent } from './contact/contact.component';
 import { CrearMascotaComponent } from './Mascotas/crear-mascota/crear-mascota.component';
 import { ModificarMascotaComponent } from './Mascotas/modificar-mascota/modificar-mascota.component';
 import { MascotaComponent } from './Mascotas/mascota/mascota.component';
+import { ListarMascotasComponent } from './Mascotas/listar-mascotas/listar-mascotas.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MascotaComponent } from './Mascotas/mascota/mascota.component';
     ContactComponent,
     CrearMascotaComponent,
     ModificarMascotaComponent,
-    MascotaComponent
+    MascotaComponent,
+    ListarMascotasComponent
   ],
   imports: [
     BrowserModule,
