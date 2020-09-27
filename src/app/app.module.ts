@@ -14,6 +14,10 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogdetailsComponent } from './blogdetails/blogdetails.component';
 import { ContactComponent } from './contact/contact.component';
+import { CrearusuarioComponent } from './usuarios/crearusuario/crearusuario.component';
+import { UsuarioComponent } from './usuarios/usuario/usuario.component';
+import { ModificarusuarioComponent } from './usuarios/modificarusuario/modificarusuario.component';
+import { ListarusuarioComponent } from './usuarios/listarusuario/listarusuario.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { ContactComponent } from './contact/contact.component';
     GalleryComponent,
     BlogComponent,
     BlogdetailsComponent,
-    ContactComponent
+    ContactComponent,
+    CrearusuarioComponent,
+    UsuarioComponent,
+    ModificarusuarioComponent,
+    ListarusuarioComponent
   ],
   imports: [
     BrowserModule,
