@@ -15,6 +15,10 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogdetailsComponent } from './blogdetails/blogdetails.component';
 import { ContactComponent } from './contact/contact.component';
+import { CrearMascotaComponent } from './Mascotas/crear-mascota/crear-mascota.component';
+import { ModificarMascotaComponent } from './Mascotas/modificar-mascota/modificar-mascota.component';
+import { MascotaComponent } from './Mascotas/mascota/mascota.component';
+import { ListarMascotasComponent } from './Mascotas/listar-mascotas/listar-mascotas.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 
 @NgModule({
@@ -31,6 +35,10 @@ import { ServiciosComponent } from './servicios/servicios.component';
     BlogComponent,
     BlogdetailsComponent,
     ContactComponent,
+    CrearMascotaComponent,
+    ModificarMascotaComponent,
+    MascotaComponent,
+    ListarMascotasComponent,
     ServiciosComponent
   ],
   imports: [

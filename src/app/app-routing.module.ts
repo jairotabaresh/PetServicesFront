@@ -12,6 +12,10 @@ import { BlogdetailsComponent } from './blogdetails/blogdetails.component';
 import { ContactComponent } from './contact/contact.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 
+
+//Imports de modulo de mascotas
+import { MascotaComponent } from './Mascotas/mascota/mascota.component';
+
 const routes: Routes = [
   {
     path: 'entry',
@@ -53,6 +57,15 @@ const routes: Routes = [
     path: 'contact',
     component: ContactComponent,
   },
+
+
+   //rutas para Modulo de mascotas
+  {
+    path: 'mascota',
+    component: MascotaComponent,
+  },
+
+
   {
     path: 'service',
     component: ServiciosComponent,
@@ -64,7 +77,8 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'app', pathMatch: 'full'
-  }
+  },
+
 ];
 
 @NgModule({
