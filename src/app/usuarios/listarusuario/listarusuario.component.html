@@ -1,0 +1,41 @@
+<div class = "container-fluid">
+    <div class = "row justify-content-center">
+        <div class = "col-md-10">
+            <table class="table table-striped" style="text-align: center;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Usuario</th>
+                        <th>Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>712943414</td>
+                        <td>Juan Palacios</td>
+                        <td>jpalacios</td>
+                        <td>
+                            <a class="btn" [routerLink] = "'/usuario'" data-toggle="modal" data-target="#modificarUsuario">
+                                Editar
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>1017282144</td>
+                        <td>Karen Nuñez</td>
+                        <td>knunez</td>
+                        <td>
+                            <a class="btn" [routerLink] = "'/usuario'" data-toggle="modal" data-target="#modificarUsuario">
+                                Editar
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

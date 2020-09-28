@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,15 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogdetailsComponent } from './blogdetails/blogdetails.component';
 import { ContactComponent } from './contact/contact.component';
+import { CrearusuarioComponent } from './usuarios/crearusuario/crearusuario.component';
+import { UsuarioComponent } from './usuarios/usuario/usuario.component';
+import { ModificarusuarioComponent } from './usuarios/modificarusuario/modificarusuario.component';
+import { ListarusuarioComponent } from './usuarios/listarusuario/listarusuario.component';
+import { CrearMascotaComponent } from './Mascotas/crear-mascota/crear-mascota.component';
+import { ModificarMascotaComponent } from './Mascotas/modificar-mascota/modificar-mascota.component';
+import { MascotaComponent } from './Mascotas/mascota/mascota.component';
+import { ListarMascotasComponent } from './Mascotas/listar-mascotas/listar-mascotas.component';
+import { ServiciosComponent } from './servicios/servicios.component';
 
 @NgModule({
   declarations: [
@@ -28,10 +38,22 @@ import { ContactComponent } from './contact/contact.component';
     GalleryComponent,
     BlogComponent,
     BlogdetailsComponent,
-    ContactComponent
+    ContactComponent,
+    CrearusuarioComponent,
+    UsuarioComponent,
+    ModificarusuarioComponent,
+    ListarusuarioComponent,
+    CrearMascotaComponent,
+    ModificarMascotaComponent,
+    MascotaComponent,
+    ListarMascotasComponent,
+    ServiciosComponent
   ],
   imports: [
     BrowserModule,
+    AgmCoreModule.forRoot({
+      apiKey: '2324242424'
+    }),
     AppRoutingModule
   ],
   providers: [],
