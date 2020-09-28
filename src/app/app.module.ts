@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { CrearMascotaComponent } from './Mascotas/crear-mascota/crear-mascota.co
 import { ModificarMascotaComponent } from './Mascotas/modificar-mascota/modificar-mascota.component';
 import { MascotaComponent } from './Mascotas/mascota/mascota.component';
 import { ListarMascotasComponent } from './Mascotas/listar-mascotas/listar-mascotas.component';
+import { ServiciosComponent } from './servicios/servicios.component';
 
 @NgModule({
   declarations: [
@@ -36,10 +38,14 @@ import { ListarMascotasComponent } from './Mascotas/listar-mascotas/listar-masco
     CrearMascotaComponent,
     ModificarMascotaComponent,
     MascotaComponent,
-    ListarMascotasComponent
+    ListarMascotasComponent,
+    ServiciosComponent
   ],
   imports: [
     BrowserModule,
+    AgmCoreModule.forRoot({
+      apiKey: '2324242424'
+    }),
     AppRoutingModule
   ],
   providers: [],

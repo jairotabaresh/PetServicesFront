@@ -10,6 +10,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogdetailsComponent } from './blogdetails/blogdetails.component';
 import { ContactComponent } from './contact/contact.component';
+import { ServiciosComponent } from './servicios/servicios.component';
 
 
 //Imports de modulo de mascotas
@@ -65,6 +66,10 @@ const routes: Routes = [
   },
 
 
+  {
+    path: 'service',
+    component: ServiciosComponent,
+  },
   {
     path: '',
     redirectTo: 'app', pathMatch: 'full'
