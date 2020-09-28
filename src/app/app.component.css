@@ -1,0 +1,47 @@
+ .carousel-control-prev {
+     background: #8dd072;
+     color: #ffffff;
+     display: block;
+     position: absolute;
+     width: 8%;
+     height: 50px;
+     top: 50%;
+     font-size: 28px;
+     opacity: 0.8;
+ }
+ 
+ .carousel-control-prev:hover {
+     opacity: 1;
+ }
+ 
+ .carousel-control-next {
+     background: #8dd072;
+     color: #ffffff;
+     display: block;
+     position: absolute;
+     width: 8%;
+     height: 50px;
+     top: 50%;
+     font-size: 28px;
+     opacity: 0.8;
+ }
+ 
+ .carousel-control-next:hover {
+     opacity: 1;
+ }
+ 
+ .carousel-caption h1 {
+     font-family: 'Arbutus Slab', serif;
+     font-weight: 500;
+     font-size: 64px;
+     color: #fff;
+ }
+ 
+ .carousel-caption p {
+     font-size: 18px;
+     color: #fff;
+ }
+ 
+ .PetService {
+     color: #8dd072;
+ }
