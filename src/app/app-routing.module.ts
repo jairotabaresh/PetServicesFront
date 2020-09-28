@@ -15,6 +15,7 @@ import { ServiciosComponent } from './servicios/servicios.component';
 
 //Imports de modulo de mascotas
 import { MascotaComponent } from './Mascotas/mascota/mascota.component';
+import { UsuarioComponent } from './usuarios/usuario/usuario.component';
 
 const routes: Routes = [
   {
@@ -69,6 +70,10 @@ const routes: Routes = [
   {
     path: 'service',
     component: ServiciosComponent,
+  },
+  {
+    path: 'usuario',
+    component: UsuarioComponent,
   },
   {
     path: '',
