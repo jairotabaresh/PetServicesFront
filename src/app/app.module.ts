@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
+import { DataTablesModule } from 'angular-datatables';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { ModificarMascotaComponent } from './Mascotas/modificar-mascota/modifica
 import { MascotaComponent } from './Mascotas/mascota/mascota.component';
 import { ListarMascotasComponent } from './Mascotas/listar-mascotas/listar-mascotas.component';
 import { ServiciosComponent } from './servicios/servicios.component';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { ServiciosComponent } from './servicios/servicios.component';
     AgmCoreModule.forRoot({
       apiKey: '2324242424'
     }),
-    AppRoutingModule
+    AppRoutingModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [EntryComponent]

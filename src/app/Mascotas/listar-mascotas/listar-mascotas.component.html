@@ -1,80 +1,428 @@
 <div class = "container-fluid">
     <div class = "row justify-content-center">
         <div class = "col-md-10">
-            <table class="table table-striped" style="text-align: center;">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Especie</th>
-                        <th>Raza</th>
-                        <th>Edad</th>
-                        <th>Editar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>34</td>
-                        <td>Toby</td>
-                        <td>Perro</td>
-                        <td>Dogger</td>
-                        <td>15</td>
-                        <td>
-                            <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
-                                <img src="../../../assets/images/editar.png">
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>34</td>
-                        <td>Toby</td>
-                        <td>Perro</td>
-                        <td>Dogger</td>
-                        <td>15</td>
-                        <td>
-                            <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
-                                <img src="../../../assets/images/editar.png">
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>34</td>
-                        <td>Toby</td>
-                        <td>Perro</td>
-                        <td></td>
-                        <td>15</td>
-                        <td>
-                            <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
-                                <img src="../../../assets/images/editar.png">
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>34</td>
-                        <td>Toby</td>
-                        <td>Perro</td>
-                        <td></td>
-                        <td>15</td>
-                        <td>
-                            <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
-                                <img src="../../../assets/images/editar.png">
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>34</td>
-                        <td>Toby</td>
-                        <td>Perro</td>
-                        <td>Dogger</td>
-                        <td>15</td>
-                        <td>
-                            <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
-                                <img src="../../../assets/images/editar.png">
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                <table datatable id="tablaMascotas" class="table table-striped table-bordered" style="text-align: center;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Especie</th>
+                            <th>Raza</th>
+                            <th>Edad</th>
+                            <th>Editar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dalmata</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Rocky</td>
+                            <td>Perro</td>
+                            <td></td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td></td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>Toby</td>
+                            <td>Perro</td>
+                            <td>Dogger</td>
+                            <td>15</td>
+                            <td>
+                                <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" data-target="#modificarMascota">
+                                    <img src="../../../assets/images/editar.png">
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
         </div>
     </div>
 </div>
