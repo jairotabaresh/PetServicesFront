@@ -335,8 +335,6 @@ button:focus {
     box-shadow: -10px -10px 0px #8dd072;
 }
 
-.inner-column {}
-
 .inner-column h1 {
     font-family: 'Arbutus Slab', serif;
     font-size: 30px;
@@ -534,11 +532,11 @@ button:focus {
 }
 
 .carousel-control-prev {
-    left: -100px;
+    left: 0;
 }
 
 .carousel-control-next {
-    right: -100px;
+    right: 0;
 }
 
 .text-warning {
@@ -549,12 +547,6 @@ button:focus {
 @media (min-width: 320px) and (max-width: 640px) {
     .carousel-inner .carousel-item p {
         font-size: 14px;
-    }
-    .carousel-control-prev {
-        left: -5px;
-    }
-    .carousel-control-next {
-        right: -5px;
     }
     .carousel-indicators {
         top: 400px;
