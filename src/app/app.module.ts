@@ -24,6 +24,11 @@ import { ModificarMascotaComponent } from './Mascotas/modificar-mascota/modifica
 import { MascotaComponent } from './Mascotas/mascota/mascota.component';
 import { ListarMascotasComponent } from './Mascotas/listar-mascotas/listar-mascotas.component';
 import { ServiciosComponent } from './servicios/servicios.component';
+import { CitaComponent } from './cita/cita/cita.component';
+import { ListaCitaComponent } from './cita/lista-cita/lista-cita.component';
+import { MoficarCitasComponent } from './cita/moficar-citas/moficar-citas.component';
+import { AgendarCitasComponent } from './cita/agendar-citas/agendar-citas.component';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +52,11 @@ import { ServiciosComponent } from './servicios/servicios.component';
     ModificarMascotaComponent,
     MascotaComponent,
     ListarMascotasComponent,
-    ServiciosComponent
+    ServiciosComponent,
+    CitaComponent,
+    ListaCitaComponent,
+    MoficarCitasComponent,
+    AgendarCitasComponent,
   ],
   imports: [
     BrowserModule,
