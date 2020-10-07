@@ -188,7 +188,7 @@ button:focus {
     color: #ffffff;
 }
 
-.top-navbar .navbar-light .navbar-nav .nav-item.active .nav-link {
+.top-navbar .navbar-light .navbar-nav .nav-item .nav-link.router-link-active {
     background: #8dd072;
     color: #ffffff;
     border-radius: 4px;
@@ -200,6 +200,11 @@ button:focus {
 }
 
 .navbar-expand-lg .navbar-nav .dropdown-menu a.dropdown-item:hover {
+    background: #8dd072;
+    color: #ffffff;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu a.dropdown-item.router-link-active {
     background: #8dd072;
     color: #ffffff;
 }
