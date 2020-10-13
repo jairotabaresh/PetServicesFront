@@ -24,6 +24,7 @@
     "@popperjs/core": "^2.5.1",
     "@types/datatables.net": "^1.10.19",
     "@types/jquery": "^3.5.1",
+    "angular-datatables": "^9.0.2",
     "angular-material": "^1.2.0",
     "bootstrap": "^4.5.2",
     "jquery": "^3.5.1",
