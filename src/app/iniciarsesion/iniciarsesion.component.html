@@ -1,0 +1,62 @@
+
+<section class="py-3 mb-3 bg-light">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-6">
+				<a [routerLink]="'/iniciosesion'" class="btn text-white" style="background-color: #8DD072"
+					data-toggle="modal" data-target="#iniciosesion">
+					Inicio Sesion
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+<body>
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header bg-light text-success">
+				<div class="container text-center">
+					<h1>Iniciar Sesi&oacute;n</h1>
+					<form id="">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<input type="text" class="form-control" id="" name=""
+										placeholder="Ingresa tu usuario" required
+										data-error="Por favor ingresa el usuario">
+									<div class="help-block with-errors"></div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<input type="text" placeholder="" id="" class="form-control" name=""
+										placeholder="Ingresa tu contrase&ntilde;a" required
+										data-error="Por favor ingresa la contrase&ntilde;a">
+									<div class="help-block with-errors"></div>
+									<div id="" class="h3 text-center hidden"></div>
+									<div class="clearfix"></div>
+									<div class="prueba">
+										<a href="#">Olvid&eacute; mi contrase&ntilde;a? </a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="submit-button text-center">
+									<button class="btn btn-common" id="" type="submit">Ingresar</button>
+									<div id="" class="h3 text-center hidden"></div>
+									<div class="clearfix"></div>
+                                    <a href="#" [routerLink]="'/inicioregistrarse'">Quiero registrarme</a>
+
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+    </div>
+    
+    
+    
+
