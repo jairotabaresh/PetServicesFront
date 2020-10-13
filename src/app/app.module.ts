@@ -26,6 +26,7 @@ import { ListarMascotasComponent } from './Mascotas/listar-mascotas/listar-masco
 import { ServiciosComponent } from './servicios/servicios.component';
 import { IniciarsesionComponent } from './iniciarsesion/iniciarsesion.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
+import { IniciorecuperaComponent } from './iniciorecupera/iniciorecupera.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { RegistrarseComponent } from './registrarse/registrarse.component';
     ListarMascotasComponent,
     ServiciosComponent,
     IniciarsesionComponent,
-    RegistrarseComponent
+    RegistrarseComponent,
+    IniciorecuperaComponent
   ],
   imports: [
     BrowserModule,

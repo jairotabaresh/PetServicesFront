@@ -20,6 +20,7 @@ import { UsuarioComponent } from './usuarios/usuario/usuario.component';
 //Imports de modulo de inicio sesión
 import { IniciarsesionComponent } from './iniciarsesion/iniciarsesion.component'; 
 import { RegistrarseComponent } from './registrarse/registrarse.component';
+import { IniciorecuperaComponent } from './iniciorecupera/iniciorecupera.component';
 
 const routes: Routes = [
   {
@@ -79,6 +80,9 @@ const routes: Routes = [
     path: 'usuario',
     component: UsuarioComponent,
   },
+
+  //rutas para Modulo inicio session
+
   {
     path: 'iniciosesion',
     component: IniciarsesionComponent,
@@ -87,6 +91,13 @@ const routes: Routes = [
     path: 'inicioregistrarse',
     component: RegistrarseComponent,
   },
+
+  {
+    path: 'iniciorecuperar',
+    component: IniciorecuperaComponent,
+
+  },
+
   {
     path: '',
     redirectTo: 'app', pathMatch: 'full'
