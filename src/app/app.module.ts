@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
+import { DataTablesModule } from 'angular-datatables';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +29,9 @@ import { CitaComponent } from './cita/cita/cita.component';
 import { ListaCitaComponent } from './cita/lista-cita/lista-cita.component';
 import { MoficarCitasComponent } from './cita/moficar-citas/moficar-citas.component';
 import { AgendarCitasComponent } from './cita/agendar-citas/agendar-citas.component';
+import { IniciarsesionComponent } from './iniciarsesion/iniciarsesion.component';
+import { RegistrarseComponent } from './registrarse/registrarse.component';
+import { IniciorecuperaComponent } from './iniciorecupera/iniciorecupera.component';
 
 
 @NgModule({
@@ -57,13 +61,17 @@ import { AgendarCitasComponent } from './cita/agendar-citas/agendar-citas.compon
     ListaCitaComponent,
     MoficarCitasComponent,
     AgendarCitasComponent,
+    IniciarsesionComponent,
+    RegistrarseComponent,
+    IniciorecuperaComponent
   ],
   imports: [
     BrowserModule,
     AgmCoreModule.forRoot({
       apiKey: '2324242424'
     }),
-    AppRoutingModule
+    AppRoutingModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [EntryComponent]

@@ -22,6 +22,11 @@ import { CitaComponent } from './cita/cita/cita.component';
 
 
 
+//Imports de modulo de inicio sesión
+import { IniciarsesionComponent } from './iniciarsesion/iniciarsesion.component'; 
+import { RegistrarseComponent } from './registrarse/registrarse.component';
+import { IniciorecuperaComponent } from './iniciorecupera/iniciorecupera.component';
+
 const routes: Routes = [
   {
     path: 'entry',
@@ -80,6 +85,24 @@ const routes: Routes = [
     path: 'usuario',
     component: UsuarioComponent,
   },
+
+  //rutas para Modulo inicio session
+
+  {
+    path: 'iniciosesion',
+    component: IniciarsesionComponent,
+  },
+  {
+    path: 'inicioregistrarse',
+    component: RegistrarseComponent,
+  },
+
+  {
+    path: 'iniciorecuperar',
+    component: IniciorecuperaComponent,
+
+  },
+
   {
     path: 'citas',
     component: CitaComponent,
@@ -88,6 +111,8 @@ const routes: Routes = [
     path: '',
     redirectTo: 'app', pathMatch: 'full'
   },
+
+  
   {
     path: '**',
     redirectTo: 'app', pathMatch: 'full'
