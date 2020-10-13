@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
+import { DataTablesModule } from 'angular-datatables';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +28,7 @@ import { ServiciosComponent } from './servicios/servicios.component';
 import { IniciarsesionComponent } from './iniciarsesion/iniciarsesion.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { IniciorecuperaComponent } from './iniciorecupera/iniciorecupera.component';
+
 
 @NgModule({
   declarations: [
@@ -60,7 +62,8 @@ import { IniciorecuperaComponent } from './iniciorecupera/iniciorecupera.compone
     AgmCoreModule.forRoot({
       apiKey: '2324242424'
     }),
-    AppRoutingModule
+    AppRoutingModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [EntryComponent]
