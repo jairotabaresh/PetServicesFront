@@ -25,6 +25,9 @@ import { ModificarMascotaComponent } from './Mascotas/modificar-mascota/modifica
 import { MascotaComponent } from './Mascotas/mascota/mascota.component';
 import { ListarMascotasComponent } from './Mascotas/listar-mascotas/listar-mascotas.component';
 import { ServiciosComponent } from './servicios/servicios.component';
+import { IniciarsesionComponent } from './iniciarsesion/iniciarsesion.component';
+import { RegistrarseComponent } from './registrarse/registrarse.component';
+import { IniciorecuperaComponent } from './iniciorecupera/iniciorecupera.component';
 
 
 @NgModule({
@@ -49,7 +52,10 @@ import { ServiciosComponent } from './servicios/servicios.component';
     ModificarMascotaComponent,
     MascotaComponent,
     ListarMascotasComponent,
-    ServiciosComponent
+    ServiciosComponent,
+    IniciarsesionComponent,
+    RegistrarseComponent,
+    IniciorecuperaComponent
   ],
   imports: [
     BrowserModule,
