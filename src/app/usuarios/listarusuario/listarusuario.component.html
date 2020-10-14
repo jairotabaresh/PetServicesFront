@@ -22,9 +22,9 @@
                         <td>{{usuario.direccion}}</td>
                         <td>{{usuario.rol.nombre}}</td>
                         <td>
-                            <a class="btn" [routerLink]="'/usuario'" data-toggle="modal" data-target="#modificarUsuario">
-                                Editar
-                            </a>
+                            <button (click) = "ListarPorId(usuario.id)" [routerLink]="'/usuario'" data-toggle="modal" data-target="#modificarUsuario">
+                                <img src="../../../assets/images/editar.png">
+                            </button>
                         </td>
                     </tr>
                 </tbody>

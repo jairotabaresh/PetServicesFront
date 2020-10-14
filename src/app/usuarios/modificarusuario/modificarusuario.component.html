@@ -9,22 +9,31 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" class="form-control" id="usuario.cedula" name="usuario.cedula" placeholder="Cédula" required data-error="Ingresa el numero de cédula">
-									<div class="help-block with-errors"></div>
+									<input type="text" [(ngModel)]="usuario.nombre" class=" form-control " name="nombre " placeholder="Ingresa tu nombre " required data-error="Por favor ingresa el nombre ">
 								</div>                                 
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" class="form-control" id="usuario.nombre" name="usuario.nombre" placeholder="Nombre completo" required data-error="Ingresa el nombre">
-									<div class="help-block with-errors"></div>
+									<input type="text " class="form-control" [(ngModel)]="usuario.celular" name="celular " placeholder="Ingresa tu celular " required data-error="Por favor ingresa el celular ">
 								</div>                                 
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" class="form-control" id="usuario.usuario" name="usuario.usuario" placeholder="Usuario" required data-error="Ingresa el usuario">
-									<div class="help-block with-errors"></div>
+									<input type="text" class="form-control" [(ngModel)]="usuario.correo" name="correo" placeholder=" Ingresa tu correo " data-error="Por favor ingresa el correo ">
 								</div>                                 
 							</div>
+							<div class="col-md-12 ">
+                                <div class="form-group ">
+                                    <input type="text " class="form-control " [(ngModel)]="usuario.direccion " name="direccion " placeholder="Ingresa tu dirección " data-error="Por favor ingresa la dirección ">
+                                </div>
+							</div>
+							<div class="col-md-12 ">
+                                <div class="form-group ">
+                                    <select class="custom-select d-block form-control " name="rol" [(ngModel)]="usuario.rol.id" required data-error="Ingresa el usuario al cual pertenece esta mascota ">
+									  <!-- <option *ngFor="let rol of roles "  [value]="rol.id ">{{rol.nombre}}</option> -->
+									 </select>
+                                </div>
+                            </div>
 							<div class="col-md-3"></div>
 							<div class="col-md-3">
 								<div class="submit-button text-center">

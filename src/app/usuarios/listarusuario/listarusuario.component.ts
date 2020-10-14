@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../Service/usuario.service';
 import { Usuario } from '../../Modelo/Usuario';
+import { RolService } from 'src/app/Service/rol.service';
+import { Rol } from 'src/app/Modelo/Rol';
 
 @Component({
   selector: 'app-listarusuario',
@@ -10,10 +12,13 @@ import { Usuario } from '../../Modelo/Usuario';
 export class ListarusuarioComponent implements OnInit {
 
   public Usuarios: Usuario[];
-  constructor(private usuarioService: UsuarioService ) { }
+  public roles: Rol[];
+  
+  constructor(private usuarioService: UsuarioService, private rolService: RolService) { }
 
   ngOnInit(): void {
     this.Listar();
+    this.listarRol();
   }
 
   public Listar(){
@@ -22,5 +27,14 @@ export class ListarusuarioComponent implements OnInit {
     }, err => {
       this.Usuarios = new Array();
     });
+  }
+
+  public listarRol(){
+    this.rolService.listar().subscribe((respuesta: Rol[]) => {
+      this.roles = respuesta;
+    }, err => {
+      this.roles = new Array();
+    });
+
   }
 }
