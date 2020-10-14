@@ -34,7 +34,8 @@
               "src/assets/css/classic.time.css",
               "src/assets/css/animate.css",
               "src/assets/css/superslides.css",
-              "src/assets/css/font-awesome.min.css"
+              "src/assets/css/font-awesome.min.css",
+              "src/assets/css/jquery.dataTables.css"
             ],
             "scripts": [
               "src/assets/js/baguetteBox.min.js",
@@ -51,7 +52,8 @@
               "src/assets/js/jquery.superslides.min.js",
               "src/assets/js/jquery.mapify.js",
               "src/assets/js/custom.js",
-              "src/assets/js/bootstrap.min.js"
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/jquery.dataTables.js"
             ]
           },
           "configurations": {
