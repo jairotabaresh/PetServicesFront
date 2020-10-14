@@ -13,9 +13,14 @@ import { ContactComponent } from './contact/contact.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 
 
-//Imports de modulo de mascotas
+// Imports de modulo de mascotas
 import { MascotaComponent } from './Mascotas/mascota/mascota.component';
 import { UsuarioComponent } from './usuarios/usuario/usuario.component';
+import { CitaComponent } from './cita/cita/cita.component';
+
+
+
+
 
 //Imports de modulo de inicio sesión
 import { IniciarsesionComponent } from './iniciarsesion/iniciarsesion.component'; 
@@ -65,7 +70,7 @@ const routes: Routes = [
   },
 
 
-   //rutas para Modulo de mascotas
+   // rutas para Modulo de mascotas
   {
     path: 'mascota',
     component: MascotaComponent,
@@ -98,6 +103,10 @@ const routes: Routes = [
 
   },
 
+  {
+    path: 'citas',
+    component: CitaComponent,
+  },
   {
     path: '',
     redirectTo: 'app', pathMatch: 'full'

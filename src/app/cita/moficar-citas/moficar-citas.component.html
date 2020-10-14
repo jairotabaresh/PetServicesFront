@@ -1,0 +1,90 @@
+<!--Formulario flotante de modificar mascota-->
+
+<div id="modificarCitas" class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-light text-success">
+                <div class="container text-center">
+                    <h1>Modificar Citas</h1>
+                    <form action="" method="get">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="date" class="form-control" laceholder="Fecha Cita" required data-error="Ingresa fecha">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="time" class="form-control" laceholder="Hora Cita" required data-error="Ingresa la hora">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="custom-select d-block form-control">
+                                      <option disabled selected>Seleccionar Mascota</option>
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                      <option value="6">6</option>
+                                      <option value="7">7</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="custom-select d-block form-control">
+                                      <option disabled selected>Seleccionar Servicio</option>
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                      <option value="6">6</option>
+                                      <option value="7">7</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="custom-select d-block form-control">
+                                      <option disabled selected>Seleccionar Estado</option>
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <textarea class="form-control" placeholder="Comentario" rows="4" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3">
+                                <div class="submit-button text-center">
+                                    <button class="btn btn-common" type="submit">
+										Actualizar
+									</button>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="submit-button text-center">
+                                    <button class="btn btn-danger" type="submit" data-dismiss="modal">
+										Cancelar
+									</button>
+                                </div>
+                            </div>
+                            <div class="col-md-3"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
 import { DataTablesModule } from 'angular-datatables';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +27,10 @@ import { ModificarMascotaComponent } from './Mascotas/modificar-mascota/modifica
 import { MascotaComponent } from './Mascotas/mascota/mascota.component';
 import { ListarMascotasComponent } from './Mascotas/listar-mascotas/listar-mascotas.component';
 import { ServiciosComponent } from './servicios/servicios.component';
+import { CitaComponent } from './cita/cita/cita.component';
+import { ListaCitaComponent } from './cita/lista-cita/lista-cita.component';
+import { MoficarCitasComponent } from './cita/moficar-citas/moficar-citas.component';
+import { AgendarCitasComponent } from './cita/agendar-citas/agendar-citas.component';
 import { IniciarsesionComponent } from './iniciarsesion/iniciarsesion.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { IniciorecuperaComponent } from './iniciorecupera/iniciorecupera.component';
@@ -53,17 +59,23 @@ import { IniciorecuperaComponent } from './iniciorecupera/iniciorecupera.compone
     MascotaComponent,
     ListarMascotasComponent,
     ServiciosComponent,
+    CitaComponent,
+    ListaCitaComponent,
+    MoficarCitasComponent,
+    AgendarCitasComponent,
     IniciarsesionComponent,
     RegistrarseComponent,
     IniciorecuperaComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: '2324242424'
     }),
     AppRoutingModule,
-    DataTablesModule
+    DataTablesModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [EntryComponent]

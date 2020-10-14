@@ -188,7 +188,7 @@ button:focus {
     color: #ffffff;
 }
 
-.top-navbar .navbar-light .navbar-nav .nav-item.active .nav-link {
+.top-navbar .navbar-light .navbar-nav .nav-item .nav-link.router-link-active {
     background: #8dd072;
     color: #ffffff;
     border-radius: 4px;
@@ -200,6 +200,11 @@ button:focus {
 }
 
 .navbar-expand-lg .navbar-nav .dropdown-menu a.dropdown-item:hover {
+    background: #8dd072;
+    color: #ffffff;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu a.dropdown-item.router-link-active {
     background: #8dd072;
     color: #ffffff;
 }
@@ -334,8 +339,6 @@ button:focus {
 .about-section-box .img-fluid {
     box-shadow: -10px -10px 0px #8dd072;
 }
-
-.inner-column {}
 
 .inner-column h1 {
     font-family: 'Arbutus Slab', serif;
@@ -534,11 +537,11 @@ button:focus {
 }
 
 .carousel-control-prev {
-    left: -100px;
+    left: 0;
 }
 
 .carousel-control-next {
-    right: -100px;
+    right: 0;
 }
 
 .text-warning {
@@ -549,12 +552,6 @@ button:focus {
 @media (min-width: 320px) and (max-width: 640px) {
     .carousel-inner .carousel-item p {
         font-size: 14px;
-    }
-    .carousel-control-prev {
-        left: -5px;
-    }
-    .carousel-control-next {
-        right: -5px;
     }
     .carousel-indicators {
         top: 400px;
