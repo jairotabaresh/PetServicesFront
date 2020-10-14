@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
 import { DataTablesModule } from 'angular-datatables';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -67,11 +69,13 @@ import { IniciorecuperaComponent } from './iniciorecupera/iniciorecupera.compone
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: '2324242424'
     }),
     AppRoutingModule,
-    DataTablesModule
+    DataTablesModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [EntryComponent]
