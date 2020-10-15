@@ -6,7 +6,7 @@ export class Cita{
     id: number;
     fecha: Date;
     hora: Time;
-    cometario: string;
+    comentario: string;
     estado: Estado;
     servicio: Servicio;
 }
