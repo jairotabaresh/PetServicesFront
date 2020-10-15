@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../Modelo/Usuario';
+import { UsuarioService } from '../Service/usuario.service';
 
 @Component({
   selector: 'app-iniciarsesion',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IniciarsesionComponent implements OnInit {
 
-  constructor() { }
+  public usuario = new Usuario();
+
+  constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
+  }
+
+  public buscarUsuario(){
+
+    this.usuarioService.buscarUsuario(this.usuario).subscribe((respuesta:String)=>{
+      if (respuesta == null) {
+        alert('Usuario no registrado o contraseña invalidad');
+
+      }
+    })
   }
 
 }

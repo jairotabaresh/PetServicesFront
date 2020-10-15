@@ -21,4 +21,11 @@ export class UsuarioService {
 
     return this.http.post<boolean>(this.ruta + '/crear', usuario);
   }
+
+  public buscarUsuario(usuario: Usuario){
+
+    return this.http.post<String>(this.ruta + '/iniciosesion', usuario);
+  }
+
+
 }
