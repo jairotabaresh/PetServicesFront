@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Correo } from '../Modelo/Correo';
+import { CorreoService } from '../Service/correo.service';
+
+
 
 @Component({
   selector: 'app-contact',
@@ -8,12 +12,25 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ContactComponent implements OnInit {
-
-  constructor() { }
+  public correo = new Correo();
+  constructor(private correoService: CorreoService) { }
 
   ngOnInit(): void {
   }
 
   lat: number = 51.678418;
   lng: number = 7.809007;
+
+  public Enviar(){
+    this.correoService.Enviar(this.correo).subscribe((respuesta: boolean) =>
+    {
+      if (respuesta){
+        console.log("Envió");
+      } else {
+        console.log("No envió");
+      }
+    }, err => {
+      console.log("Error");
+    });
+  }
 }
