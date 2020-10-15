@@ -32,8 +32,6 @@
 	</div>
 	<!-- End All Pages -->
 	
-	<agm-map [latitude]="lat" [longitude]="lng"></agm-map>
-	
 	<!-- Start Contact -->
 	<div class="contact-box">
 		<div class="container">
@@ -51,19 +49,19 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" class="form-control" id="name" name="name" placeholder="Por favor ingresa tu nombre" required data-error="Por favor ingresa tu nombre">
+									<input type="text" [(ngModel)]="correo.nombre" class="form-control" id="name" name="name" placeholder="Por favor ingresa tu nombre" required data-error="Por favor ingresa tu nombre">
 									<div class="help-block with-errors"></div>
 								</div>                                 
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" placeholder="Por favor ingresa tu email" id="email" class="form-control" name="name" required data-error="Por favor ingresa tu email">
+									<input type="text" [(ngModel)]="correo.correo" placeholder="Por favor ingresa tu email" id="email" class="form-control" name="name" required data-error="Por favor ingresa tu email">
 									<div class="help-block with-errors"></div>
 								</div> 
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<select class="custom-select d-block form-control" id="guest" required data-error="Por favor selecciona tu mascota">
+									<select [(ngModel)]="correo.mascota" class="custom-select d-block form-control" id="guest" required data-error="Por favor selecciona tu mascota" name="mascota">
 									  <option disabled selected>Por favor selecciona tu mascota</option>
 									  <option value="1">Perro</option>
 									  <option value="2">Gato</option>
@@ -76,11 +74,11 @@
 							</div>
 							<div class="col-md-12">
 								<div class="form-group"> 
-									<textarea class="form-control" id="message" placeholder="Por favor ingresa tu mensaje" rows="4" data-error="Por favor ingresa tu mensaje" required></textarea>
+									<textarea class="form-control" [(ngModel)]="correo.mensaje" id="message" placeholder="Por favor ingresa tu mensaje" rows="4" name = "mensaje" data-error="Por favor ingresa tu mensaje" required></textarea>
 									<div class="help-block with-errors"></div>
 								</div>
 								<div class="submit-button text-center">
-									<button class="btn btn-common" id="submit" type="submit">Enviar Mensaje</button>
+									<button class="btn btn-common" (click)="Enviar()" id="submit" type="submit">Enviar Mensaje</button>
 									<div id="msgSubmit" class="h3 text-center hidden"></div> 
 									<div class="clearfix"></div> 
 								</div>
