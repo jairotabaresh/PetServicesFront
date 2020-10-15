@@ -28,14 +28,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>3</td>
-                        <td>01/01/2020</td>
-                        <td>8:00</td>
+                    <tr *ngFor="let cita of citas">
+                        <td>{{cita.id}}</td>
+                        <td>{{cita.fecha}}</td>
+                        <td>{{cita.hora}}</td>
+                        <td>{{cita.comentario}}</td>
                         <td></td>
-                        <td>Kaiser</td>
-                        <td>Baño</td>
-                        <td>Atendido</td>
+                        <td>{{cita.servicio.nombre}}</td>
+                        <td>{{cita.estado.nombre}}</td>
                         <td>
                             <a class="btn" [routerLink]="'/citas'" data-toggle="modal" data-target="#modificarCitas">
                                 <img src="../../../assets/images/editar.png">
