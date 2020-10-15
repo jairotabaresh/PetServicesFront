@@ -35,7 +35,6 @@ export class CrearusuarioComponent implements OnInit {
   }
 
   public Guardar(){
-    debugger;
     this.usuarioService.Crear(this.usuario).subscribe((respuesta: boolean) =>
     {
       if (respuesta){

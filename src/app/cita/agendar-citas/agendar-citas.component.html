@@ -6,60 +6,53 @@
             <div class="modal-header bg-light text-success">
                 <div class="container text-center">
                     <h1>Agendar Citas</h1>
-                    <form action="" method="get">
+                    <form>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="date" class="form-control" laceholder="Fecha Cita" required data-error="Ingresa fecha">
-                                    <div class="help-block with-errors"></div>
+                                    <select name="idUsuraio" [(ngModel)]="idUsuario" class="custom-select d-block form-control" (change)="listarMascota()">
+                                      <option  *ngFor="let usuario of usuarios" [value]="usuario.id">{{usuario.nombre}}</option>
+                                    </select>
                                 </div>
                             </div>
-
-                            <div class="col-md-12">
+                            <div class="col-md-12" *ngIf="idUsuario !== 0">
                                 <div class="form-group">
-                                    <input type="time" class="form-control" laceholder="Hora Cita" required data-error="Ingresa la hora">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <select class="custom-select d-block form-control">
+                                    <select class="custom-select d-block form-control" name="idMascota" [(ngModel)]="cita.id">
                                       <option disabled selected>Seleccionar Mascota</option>
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                      <option value="6">6</option>
-                                      <option value="7">7</option>
+                                       <option disabled selected>{{mascotas}}</option> 
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <select class="custom-select d-block form-control">
-                                      <option disabled selected>Seleccionar Servicio</option>
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                      <option value="6">6</option>
-                                      <option value="7">7</option>
+                                    <input type="date" name="fecha" [(ngModel)]="cita.fecha" class="form-control" placeholder="Fecha Cita" required data-error="Ingresa fecha">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="time" name="hora" [(ngModel)]="cita.hora" class="form-control" placeholder="Hora Cita" required data-error="Ingresa la hora">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select name="service" [(ngModel)]="cita.servicio.id" class="custom-select d-block form-control">
+                                        <option  *ngFor="let servicio of servicios" [value]="servicio.id">{{servicio.nombre}}</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <div class="form-group">
-                                        <textarea class="form-control" placeholder="Comentarios" rows="4" required></textarea>
+                                        <textarea name="comentario" [(ngModel)]="cita.comentario" class="form-control" placeholder="Comentarios" rows="4" required></textarea>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3"></div>
                             <div class="col-md-3">
                                 <div class="submit-button text-center">
-                                    <button class="btn btn-common" type="submit">
+                                    <button class="btn btn-common" type="submit" (click)="Guardar()">
 										Agendar
 									</button>
                                 </div>
