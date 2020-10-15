@@ -1,5 +1,5 @@
 
-<div id="modificarUsuario" class="modal fade">
+<div id="modificarUsuario" class="modal fade" #content>
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header bg-light text-success">
@@ -8,49 +8,35 @@
 					<form action="" method="get">
 						<div class="row">
 							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" [(ngModel)]="usuario.nombre" class=" form-control " name="nombre " placeholder="Ingresa tu nombre " required data-error="Por favor ingresa el nombre ">
-								</div>                                 
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text " class="form-control" [(ngModel)]="usuario.celular" name="celular " placeholder="Ingresa tu celular " required data-error="Por favor ingresa el celular ">
-								</div>                                 
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" class="form-control" [(ngModel)]="usuario.correo" name="correo" placeholder=" Ingresa tu correo " data-error="Por favor ingresa el correo ">
-								</div>                                 
-							</div>
-							<div class="col-md-12 ">
+                                <div class="form-group">
+                                    <input type="text" [(ngModel)]="usuario.nombre" class=" form-control " name="nombre " placeholder=" " required data-error="Por favor ingresa el nombre ">
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="form-group ">
+                                    <input type="text " class="form-control" [(ngModel)]="usuario.celular" name="celular " placeholder="Ingresa tu celular " required data-error="Por favor ingresa el celular ">
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div class="form-group ">
+                                    <input type="text" class="form-control" [(ngModel)]="usuario.correo" name="correo" placeholder=" Ingresa tu correo " data-error="Por favor ingresa el correo ">
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
                                 <div class="form-group ">
                                     <input type="text " class="form-control " [(ngModel)]="usuario.direccion " name="direccion " placeholder="Ingresa tu dirección " data-error="Por favor ingresa la dirección ">
                                 </div>
-							</div>
-							<div class="col-md-12 ">
-                                <div class="form-group ">
-                                    <select class="custom-select d-block form-control " name="rol" [(ngModel)]="usuario.rol.id" required data-error="Ingresa el usuario al cual pertenece esta mascota ">
-									  <!-- <option *ngFor="let rol of roles "  [value]="rol.id ">{{rol.nombre}}</option> -->
-									 </select>
-                                </div>
                             </div>
 							<div class="col-md-3"></div>
-							<div class="col-md-3">
+							<div class="col-md-6">
 								<div class="submit-button text-center">
 									<button class="btn btn-success" id="guardar" name="guardar" type="submit">
 										Guardar
 									</button>
 								</div>
 							</div>
-							<div class="col-md-3">
-								<div class="submit-button text-center">
-									<button class="btn btn-danger" id="borrar" name="borrar" type="submit">
-										Borrar
-									</button>
-								</div>
-							</div>
 							<div class="col-md-3"></div>
-						</div>            
+						</div>
 					</form>
 				</div>
 			</div>

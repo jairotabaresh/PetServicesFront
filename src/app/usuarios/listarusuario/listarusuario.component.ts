@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UsuarioService } from '../../Service/usuario.service';
 import { Usuario } from '../../Modelo/Usuario';
-import { RolService } from 'src/app/Service/rol.service';
-import { Rol } from 'src/app/Modelo/Rol';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listarusuario',
@@ -12,13 +11,10 @@ import { Rol } from 'src/app/Modelo/Rol';
 export class ListarusuarioComponent implements OnInit {
 
   public Usuarios: Usuario[];
-  public roles: Rol[];
-  
-  constructor(private usuarioService: UsuarioService, private rolService: RolService) { }
+  constructor(private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
     this.Listar();
-    this.listarRol();
   }
 
   public Listar(){
@@ -29,12 +25,10 @@ export class ListarusuarioComponent implements OnInit {
     });
   }
 
-  public listarRol(){
-    this.rolService.listar().subscribe((respuesta: Rol[]) => {
-      this.roles = respuesta;
-    }, err => {
-      this.roles = new Array();
-    });
-
+  @ViewChild('content') content: any;
+  public Editar(usuario: Usuario):void {
+    localStorage.setItem("id", usuario.id.toString());
+    // this.router.navigate(["usuario"])
+    this.content.nativeElement.className = 'modal fade show';
   }
 }

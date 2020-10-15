@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Rol } from 'src/app/Modelo/Rol';
+import { Router } from '@angular/router';
 import { Usuario } from 'src/app/Modelo/Usuario';
+import { UsuarioService } from 'src/app/Service/usuario.service';
 
 @Component({
   selector: 'app-modificarusuario',
@@ -9,11 +10,19 @@ import { Usuario } from 'src/app/Modelo/Usuario';
 })
 export class ModificarusuarioComponent implements OnInit {
   public usuario = new Usuario();
-  public roles: Rol[];
   
-  constructor() { }
+  constructor(private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
+    this.Editar();
+  }
+
+  public Editar() {
+    let id = localStorage.getItem("id");
+    this.usuarioService.ListarPorId(+id)
+      .subscribe(respuesta => {
+        this.usuario = respuesta;
+      });
   }
 
 }

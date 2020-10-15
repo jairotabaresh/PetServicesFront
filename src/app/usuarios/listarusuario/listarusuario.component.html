@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <table class="table table-striped" style="text-align: center;">
+            <table datatable class="table table-striped" style="text-align: center;">
                 <thead class="thead-dark">
                     <tr>
                         <th>ID</th>
@@ -22,8 +22,8 @@
                         <td>{{usuario.direccion}}</td>
                         <td>{{usuario.rol.nombre}}</td>
                         <td>
-                            <button (click) = "ListarPorId(usuario.id)" [routerLink]="'/usuario'" data-toggle="modal" data-target="#modificarUsuario">
-                                <img src="../../../assets/images/editar.png">
+                            <button (click) = "Editar(usuario)">
+                               <img src="../../../assets/images/editar.png">
                             </button>
                         </td>
                     </tr>
