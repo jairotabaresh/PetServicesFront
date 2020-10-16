@@ -1,3 +1,4 @@
+import { isNull } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../Modelo/Usuario';
 import { UsuarioService } from '../Service/usuario.service';
@@ -10,20 +11,27 @@ import { UsuarioService } from '../Service/usuario.service';
 export class IniciarsesionComponent implements OnInit {
 
   public usuario = new Usuario();
-
+  
+  
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
   }
 
-  public buscarUsuario(){
+  public Validar(){
+    
+    console.log(this.usuario);
+    this.usuarioService.buscarUsuario(this.usuario).subscribe((respuesta:Usuario)=> {
+      console.log(respuesta);
+      //if (Usuario.respuesta) {
+      //  alert('Usuario Registrado');
 
-    this.usuarioService.buscarUsuario(this.usuario).subscribe((respuesta:String)=>{
-      if (respuesta == null) {
-        alert('Usuario no registrado o contraseña invalidad');
-
-      }
-    })
+      //} else {
+      //  alert('usuario no resgistrado');
+      //}
+    //}, err => {
+    //  console.log("Error");
+    });
   }
 
 }

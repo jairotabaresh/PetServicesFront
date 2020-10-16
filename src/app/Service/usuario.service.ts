@@ -24,7 +24,7 @@ export class UsuarioService {
 
   public buscarUsuario(usuario: Usuario){
 
-    return this.http.post<String>(this.ruta + '/iniciosesion', usuario);
+    return this.http.post<Usuario>(this.ruta + '/iniciosesion', usuario);
   }
 
 
