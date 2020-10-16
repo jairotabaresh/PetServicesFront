@@ -3,6 +3,7 @@ import { Usuario } from '../../Modelo/Usuario';
 import { Rol } from '../../Modelo/Rol';
 import { RolService } from '../../Service/rol.service';
 import { UsuarioService } from '../../Service/usuario.service';
+import Swal from 'sweetalert2';
 
 
 
@@ -17,7 +18,7 @@ export class CrearusuarioComponent implements OnInit {
   public roles: Rol[];
 
   constructor(private rolService: RolService,
-              private usuarioService: UsuarioService) {
+    private usuarioService: UsuarioService) {
     this.listarRol();
     this.usuario.rol = new Rol();
   }
@@ -25,7 +26,7 @@ export class CrearusuarioComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public listarRol(){
+  public listarRol() {
     this.rolService.listar().subscribe((respuesta: Rol[]) => {
       this.roles = respuesta;
     }, err => {
@@ -34,16 +35,47 @@ export class CrearusuarioComponent implements OnInit {
 
   }
 
-  public Guardar(){
-    this.usuarioService.Crear(this.usuario).subscribe((respuesta: boolean) =>
-    {
-      if (respuesta){
-        console.log("Entro");
-      } else {
-        console.log("No entro");
-      }
-    }, err => {
-      console.log("Error");
-    });
+  public Guardar() {
+    if (this.validarDatos(this.usuario.correo)) {
+      this.usuarioService.Crear(this.usuario).subscribe((respuesta: boolean) => {
+        if (respuesta) {
+          Swal.fire(
+            'Usuario creado',
+            '',
+            'success'
+          ).then(() => {
+            window.location.reload();
+          })
+        }
+      }, err => {
+        Swal.fire(
+          'Lo siento',
+          'Algo salió mal',
+          'error'
+        )
+        console.log("Error");
+      });
+    }
+    else { 
+      Swal.fire(
+        'Formato email',
+        'Incorrecto',
+        'error'
+      )
+    }
+
+  }
+
+  public validarDatos(email: String): boolean {
+
+    let mailValido = false;
+    'use strict';
+
+    var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if (email.match(EMAIL_REGEX)) {
+      mailValido = true;
+    }
+    return mailValido;
   }
 }
