@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/Modelo/Usuario';
 import { UsuarioService } from 'src/app/Service/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-modificarusuario',
@@ -23,6 +24,19 @@ export class ModificarusuarioComponent implements OnInit {
       .subscribe(respuesta => {
         this.usuario = respuesta;
       });
+  }
+
+  public Actualizar(usuario: Usuario) {
+    this.usuarioService.ActualizarUsuario(usuario)
+      .subscribe(respuesta => {
+        this.usuario = respuesta;
+        Swal.fire(
+          'Registro actualizado',
+          '',
+          'success'
+        )
+        this.router.navigate(["usuario"]);
+    })
   }
 
 }

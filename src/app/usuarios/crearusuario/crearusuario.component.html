@@ -17,32 +17,33 @@
             <div class="modal-header bg-light text-success">
                 <div class="container text-center">
                     <h1>Crear Usuario</h1>
-                    <form id="">
+                    <form id="" method="POST" class="was-validated">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="text" [(ngModel)]="usuario.nombre" class=" form-control " name="nombre " placeholder="Ingresa tu nombre " required data-error="Por favor ingresa el nombre ">
+                                    <input type="text" [(ngModel)]="usuario.nombre" class=" form-control " name="nombre " placeholder="Ingresa tu nombre " required="true">
                                 </div>
                             </div>
                             <div class="col-md-12 ">
                                 <div class="form-group ">
-                                    <input type="text " class="form-control" [(ngModel)]="usuario.celular" name="celular " placeholder="Ingresa tu celular " required data-error="Por favor ingresa el celular ">
+                                    <input type="number" class="form-control" [(ngModel)]="usuario.celular" name="celular " placeholder="Ingresa tu celular " required="true">
                                 </div>
                             </div>
                             <div class="col-md-12 ">
                                 <div class="form-group ">
-                                    <input type="text" class="form-control" [(ngModel)]="usuario.correo" name="correo" placeholder=" Ingresa tu correo " data-error="Por favor ingresa el correo ">
+                                    <input type="email" class="form-control" [(ngModel)]="usuario.correo" name="correo" placeholder=" Ingresa tu correo" required="true">
                                 </div>
                             </div>
                             <div class="col-md-12 ">
                                 <div class="form-group ">
-                                    <input type="text " class="form-control " [(ngModel)]="usuario.direccion " name="direccion " placeholder="Ingresa tu dirección " data-error="Por favor ingresa la dirección ">
+                                    <input type="text" class="form-control " [(ngModel)]="usuario.direccion " name="direccion " placeholder="Ingresa tu dirección " required="true">
                                 </div>
                             </div>
 
                             <div class="col-md-12 ">
                                 <div class="form-group ">
-                                    <select class="custom-select d-block form-control " name="rol" [(ngModel)]="usuario.rol.id" required data-error="Ingresa el usuario al cual pertenece esta mascota ">
+                                    <select class="custom-select d-block form-control" name="rol" [(ngModel)]="usuario.rol.id"
+                                    required data-error="Ingresa el rol">
 									  <option *ngFor="let rol of roles "  [value]="rol.id ">{{rol.nombre}}</option>
 									 </select>
                                 </div>
@@ -50,7 +51,9 @@
 
                             <div class="col-md-12 ">
                                 <div class="submit-button text-center ">
-                                    <button class="btn btn-common " (click)="Guardar()" type="submit ">Guardar</button>
+                                    <button class="btn btn-common" (click)="Guardar()" type="submit">
+                                        Guardar
+                                    </button>
                                     <div id=" " class="h3 text-center hidden "></div>
                                     <div class="clearfix "></div>
                                 </div>
