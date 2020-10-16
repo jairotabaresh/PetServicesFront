@@ -23,4 +23,7 @@ export class MascotaService {
   public buscarPorId (id: String) {
     return this.http.get<Mascota> (this.ruta + '/obtener/' + id);
   }
+  public listarPorUsuario(idUsuario: number){
+    return this.http.get<Mascota[]> (this.ruta + '/listarPorUsuario' + '/' + idUsuario);
+  }
 }
