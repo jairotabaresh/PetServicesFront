@@ -28,4 +28,11 @@ export class UsuarioService {
   }
 
 
+  public ListarPorId(id: number) {
+    return this.http.get<Usuario>(this.ruta + "/editar/" + id);
+  }
+
+  public ActualizarUsuario(usuario: Usuario) {
+    return this.http.put<Usuario>(this.ruta + "/editar/" + usuario.id, usuario);
+  }
 }
