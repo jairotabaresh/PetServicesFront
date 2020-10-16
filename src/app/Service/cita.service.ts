@@ -14,4 +14,8 @@ export class CitaService {
   public Lista() {
      return this.http.get<Cita[]>( this.ruta + '/listar');
   }
+
+  public Crear(cita: Cita){
+    return this.http.post<boolean>(this.ruta + '/crear', cita);
+  }
 }

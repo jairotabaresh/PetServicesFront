@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
 import { DataTablesModule } from 'angular-datatables';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -75,7 +75,8 @@ import { IniciorecuperaComponent } from './iniciorecupera/iniciorecupera.compone
     }),
     AppRoutingModule,
     DataTablesModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [EntryComponent]
