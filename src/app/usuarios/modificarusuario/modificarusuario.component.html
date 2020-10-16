@@ -1,50 +1,58 @@
-
-<div id="modificarUsuario" class="modal fade">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<div class="modal-header bg-light text-success">
-				<div class="container text-center">
-					<h1>Modificar usuario</h1>
-					<form action="" method="get">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" class="form-control" id="usuario.cedula" name="usuario.cedula" placeholder="Cédula" required data-error="Ingresa el numero de cédula">
-									<div class="help-block with-errors"></div>
-								</div>                                 
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" class="form-control" id="usuario.nombre" name="usuario.nombre" placeholder="Nombre completo" required data-error="Ingresa el nombre">
-									<div class="help-block with-errors"></div>
-								</div>                                 
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" class="form-control" id="usuario.usuario" name="usuario.usuario" placeholder="Usuario" required data-error="Ingresa el usuario">
-									<div class="help-block with-errors"></div>
-								</div>                                 
-							</div>
-							<div class="col-md-3"></div>
-							<div class="col-md-3">
-								<div class="submit-button text-center">
-									<button class="btn btn-success" id="guardar" name="guardar" type="submit">
-										Guardar
-									</button>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="submit-button text-center">
-									<button class="btn btn-danger" id="borrar" name="borrar" type="submit">
-										Borrar
-									</button>
-								</div>
-							</div>
-							<div class="col-md-3"></div>
-						</div>            
-					</form>
-				</div>
+<div class="all-page-title page-breadcrumb">
+	<div class="container text-center">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1>Usuarios</h1>
 			</div>
 		</div>
 	</div>
 </div>
+<section class="py-3 mb-3 bg-white"></section>
+<div class="container text-center">
+	<h1>Modificar usuario</h1>
+	<form action="" method="get">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+					<input type="text" [(ngModel)]="usuario.nombre" class=" form-control " name="nombre "
+						required data-error="Por favor ingresa el nombre ">
+				</div>
+			</div>
+			<div class="col-md-12 ">
+				<div class="form-group ">
+					<input type="text " class="form-control" [(ngModel)]="usuario.celular" name="celular "
+						required data-error="Por favor ingresa el celular ">
+				</div>
+			</div>
+			<div class="col-md-12 ">
+				<div class="form-group ">
+					<input type="text" class="form-control" [(ngModel)]="usuario.correo" name="correo"
+						data-error="Por favor ingresa el correo ">
+				</div>
+			</div>
+			<div class="col-md-12 ">
+				<div class="form-group ">
+					<input type="text " class="form-control " [(ngModel)]="usuario.direccion " name="direccion "
+						data-error="Por favor ingresa la dirección ">
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+			<div class="col-md-3">
+				<div class="submit-button text-center">
+					<button (click) = "Actualizar(usuario)" class="btn btn-common" id="guardar" name="guardar" type="button">
+						Actualizar
+					</button>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="submit-button text-center">
+					<button [routerLink] = "'/usuario'" class="btn btn-danger" id="cancelar" name="cancelar">
+						Volver
+					</button>
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</form>
+</div>
+<section class="py-3 mb-3 bg-white"></section>
