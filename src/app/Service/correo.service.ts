@@ -17,4 +17,9 @@ export class CorreoService {
 
     return this.http.post<boolean>(this.ruta + '/enviar', correo);
   }
+
+  public Recuperar(correo: Correo){
+
+    return this.http.post<boolean>(this.ruta + '/recuperar', correo);
+  }
 }
