@@ -22,7 +22,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" class="form-control" id="" name=""
+									<input type="text" [(ngModel)]="usuario.correo" class="form-control" name="correo"
 										placeholder="Ingresa tu usuario" required
 										data-error="Por favor ingresa el usuario">
 									<div class="help-block with-errors"></div>
@@ -30,7 +30,7 @@
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" placeholder="" id="" class="form-control" name=""
+									<input type="text" [(ngModel)]="usuario.contrasena" placeholder=""  class="form-control" name="contrasena"
 										placeholder="Ingresa tu contrase&ntilde;a" required
 										data-error="Por favor ingresa la contrase&ntilde;a">
 									<div class="help-block with-errors"></div>
@@ -43,12 +43,11 @@
 							</div>
 							<div class="col-md-12">
 								<div class="submit-button text-center">
-									<button class="btn btn-common" id="" type="submit">Ingresar</button>
+									<button class="btn btn-common" (click)="Validar()" type="submit">Ingresar</button>
 									<div id="" class="h3 text-center hidden"></div>
-									<div class="clearfix"></div>
-                                    <a href="#" [routerLink]="'/inicioregistrarse'">Quiero registrarme</a>
-
-								</div>
+									<div class="clearfix"></div>			
+                                    	<a href="#" [routerLink]="'/inicioregistrarse'">Quiero registrarme</a>
+									</div>
 							</div>
 						</div>
 					</form>
