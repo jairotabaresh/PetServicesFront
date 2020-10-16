@@ -27,6 +27,7 @@ import { CitaComponent } from './cita/cita/cita.component';
 import { IniciarsesionComponent } from './iniciarsesion/iniciarsesion.component'; 
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { IniciorecuperaComponent } from './iniciorecupera/iniciorecupera.component';
+import { ModificarusuarioComponent } from './usuarios/modificarusuario/modificarusuario.component';
 
 const routes: Routes = [
   {
@@ -89,6 +90,10 @@ const routes: Routes = [
   {
     path: 'usuario',
     component: UsuarioComponent,
+  },
+  {
+    path: 'modificarUsuario',
+    component: ModificarusuarioComponent,
   },
 
   //rutas para Modulo inicio session
