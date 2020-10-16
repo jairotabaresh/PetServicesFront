@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { UsuarioService } from '../../Service/usuario.service';
 import { Usuario } from '../../Modelo/Usuario';
 import { Router } from '@angular/router';
