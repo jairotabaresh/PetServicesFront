@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Mascota } from '../../Modelo/Mascota';
 import { MascotaService } from '../../Service/mascota.service'
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-listar-mascotas',
@@ -12,7 +13,8 @@ export class ListarMascotasComponent implements OnInit {
 
   public mascotas: Mascota[];
   public dtTrigger: Subject<Mascota> = new Subject();
-  constructor(private mascotaService: MascotaService) { }
+  constructor(private mascotaService: MascotaService, 
+              private router: Router) { }
 
   ngOnInit(): void {
     this.Listar();
@@ -27,5 +29,10 @@ export class ListarMascotasComponent implements OnInit {
       this.mascotas = new Array ();
     });
     console.log (this.mascotas);
+  }
+
+  public Editar (mascota: Mascota) {
+    localStorage.setItem('id', mascota.id.toString());
+    this.router.navigate(['mascota/editar']);
   }
 }
