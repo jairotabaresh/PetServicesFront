@@ -15,6 +15,7 @@ import { ServiciosComponent } from './servicios/servicios.component';
 
 // Imports de modulo de mascotas
 import { MascotaComponent } from './Mascotas/mascota/mascota.component';
+import { ModificarMascotaComponent } from './Mascotas/modificar-mascota/modificar-mascota.component';
 import { UsuarioComponent } from './usuarios/usuario/usuario.component';
 import { CitaComponent } from './cita/cita/cita.component';
 
@@ -74,6 +75,10 @@ const routes: Routes = [
   {
     path: 'mascota',
     component: MascotaComponent,
+  },
+  {
+    path: 'mascota/editar',
+    component: ModificarMascotaComponent,
   },
 
 
