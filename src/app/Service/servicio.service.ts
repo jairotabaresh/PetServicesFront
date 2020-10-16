@@ -8,7 +8,7 @@ import { Servicio } from '../Modelo/Servicio';
 })
 export class ServicioService {
 
-  private ruta = environment.baseUrl + '/estadoController';
+  private ruta = environment.baseUrl + '/servicioController';
   constructor(private http: HttpClient) { }
 
   public Lista() {
