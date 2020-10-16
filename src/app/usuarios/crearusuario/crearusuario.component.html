@@ -43,7 +43,7 @@
                             <div class="col-md-12 ">
                                 <div class="form-group ">
                                     <select class="custom-select d-block form-control" name="rol" [(ngModel)]="usuario.rol.id"
-                                    required data-error="Ingresa el rol">
+                                    required="true">
 									  <option *ngFor="let rol of roles "  [value]="rol.id ">{{rol.nombre}}</option>
 									 </select>
                                 </div>
