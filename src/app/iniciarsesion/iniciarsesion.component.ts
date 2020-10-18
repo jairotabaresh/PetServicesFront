@@ -2,6 +2,7 @@ import { isNull } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../Modelo/Usuario';
 import { UsuarioService } from '../Service/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-iniciarsesion',
@@ -20,17 +21,15 @@ export class IniciarsesionComponent implements OnInit {
 
   public Validar(){
     
-    console.log(this.usuario);
     this.usuarioService.buscarUsuario(this.usuario).subscribe((respuesta:Usuario)=> {
-      console.log(respuesta);
-      //if (Usuario.respuesta) {
-      //  alert('Usuario Registrado');
-
-      //} else {
-      //  alert('usuario no resgistrado');
-      //}
-    //}, err => {
-    //  console.log("Error");
+      
+      if (respuesta.correo != this.usuario.correo){
+        Swal.fire(
+          'Correo no registrado o contraseña invalida',
+          '',
+          'success'
+        )
+       }
     });
   }
 
