@@ -18,4 +18,12 @@ export class CitaService {
   public Crear(cita: Cita){
     return this.http.post<boolean>(this.ruta + '/crear', cita);
   }
+
+  public buscarPorId (id: number) {
+    return this.http.get<Cita> (this.ruta + '/obtener/' + id);
+  }
+
+  public listarPorUsuario(idUsuario: number){
+    return this.http.get<Cita[]> (this.ruta + '/listarPorUsuario' + '/' + idUsuario);
+  }
 }

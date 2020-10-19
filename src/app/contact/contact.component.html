@@ -1,76 +1,57 @@
-<!DOCTYPE html>
-<html lang="en"><!-- Basic -->
-<head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
-   
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
- 
-     <!-- Site Metas -->
-    <title>PetServices - Responsive HTML5 Template</title>  
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<app-header> </app-header>
 
-    <!-- Site Icons -->
-    <link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
+<body>
+    <!-- Start All Pages -->
+    <div class="all-page-title page-breadcrumb">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Contáctanos</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Pages -->
 
-</head>
+    <!-- Start Contact -->
+    <div class="contact-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="heading-title text-center">
+                        <h2>Contáctanos</h2>
+                        <p>Por favor ingresa la siguiente información:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="container text-center">
+                        <form [formGroup]="contactoForm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" formControlName="nombre" [(ngModel)]="correo.nombre" class="form-control" id="name" name="name" placeholder="Por favor ingresa tu nombre">
+                                        <div class="help-block with-errors"></div>
 
-<body>	
-	<!-- Start All Pages -->
-	<div class="all-page-title page-breadcrumb">
-		<div class="container text-center">
-			<div class="row">
-				<div class="col-lg-12">
-					<h1>Contáctanos</h1>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- End All Pages -->
-	
-	<!-- Start Contact -->
-	<div class="contact-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="heading-title text-center">
-						<h2>Contáctanos</h2>
-						<p>Por favor ingresa la siguiente información:</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="container text-center">
-					<form [formGroup]="contactoForm">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" formControlName="nombre" [(ngModel)]="correo.nombre" class="form-control" id="name" name="name" placeholder="Por favor ingresa tu nombre">
-									<div class="help-block with-errors"></div>
-								
-								<div class="text-danger" *ngIf="camposObligatorios && validarControles('nombre')">
-									El nombre es obligatorio o no tiene el formato correcto
-								</div>  
-							</div>                               
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" formControlName="correo" [(ngModel)]="correo.correo" placeholder="Por favor ingresa tu email" id="email" class="form-control" name="name">
-									<div class="help-block with-errors"></div>
-								
-								<div class="text-danger" *ngIf="camposObligatorios && validarControles('correo')">
-									El correo es obligatorio o no tiene el formato correcto
-								</div>  
-							</div> 
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<select formControlName="mascota" [(ngModel)]="correo.mascota" class="custom-select d-block form-control" id="guest" name="mascota">
+                                        <div class="text-danger" *ngIf="camposObligatorios && validarControles('nombre')">
+                                            El nombre es obligatorio o no tiene el formato correcto
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" formControlName="correo" [(ngModel)]="correo.correo" placeholder="Por favor ingresa tu email" id="email" class="form-control" name="name">
+                                        <div class="help-block with-errors"></div>
+
+                                        <div class="text-danger" *ngIf="camposObligatorios && validarControles('correo')">
+                                            El correo es obligatorio o no tiene el formato correcto
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <select formControlName="mascota" [(ngModel)]="correo.mascota" class="custom-select d-block form-control" id="guest" name="mascota">
 									  <option disabled selected>Por favor selecciona tu mascota</option>
 									  <option value="Perro">Perro</option>
 									  <option value="Gato">Gato</option>
@@ -79,37 +60,36 @@
 									  <option value="Tortuga">Tortuga</option>
 									  <option value="Pez">Pez</option>
 									</select>
-									<div class="help-block with-errors"></div>
-								
-								<div class="text-danger" *ngIf="camposObligatorios && validarControles('mascota')">
-									La mascota es obligatoria
-								</div> 
-							</div>  
-							</div>
-							<div class="col-md-12">
-								<div class="form-group"> 
-									<textarea formControlName="comentario" class="form-control" [(ngModel)]="correo.mensaje" id="message" placeholder="Por favor ingresa tu mensaje" rows="4" name = "mensaje"></textarea>
-									<div class="help-block with-errors"></div>
-								
-								<div class="text-danger" *ngIf="camposObligatorios && validarControles('comentario')">
-									El comentario es obligatorio
-								</div> 
-							</div> 
-								<div class="submit-button text-center">
-									<button class="btn btn-common" (click)="Enviar()" id="submit" type="submit">Enviar Mensaje</button>
-									<div id="msgSubmit" class="h3 text-center hidden"></div> 
-									<div class="clearfix"></div> 
-								</div>
-							</div>
-						</div>            
-					</form>
-				</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- End Contact -->
-		
-	<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+                                        <div class="help-block with-errors"></div>
+
+                                        <div class="text-danger" *ngIf="camposObligatorios && validarControles('mascota')">
+                                            La mascota es obligatoria
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea formControlName="comentario" class="form-control" [(ngModel)]="correo.mensaje" id="message" placeholder="Por favor ingresa tu mensaje" rows="4" name="mensaje"></textarea>
+                                        <div class="help-block with-errors"></div>
+
+                                        <div class="text-danger" *ngIf="camposObligatorios && validarControles('comentario')">
+                                            El comentario es obligatorio
+                                        </div>
+                                    </div>
+                                    <div class="submit-button text-center">
+                                        <button class="btn btn-common" (click)="Enviar()" id="submit" type="submit">Enviar Mensaje</button>
+                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Contact -->
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
 </body>
-</html>

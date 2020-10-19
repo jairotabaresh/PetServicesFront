@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-6">
-                <a [routerLink]="'/citas'" class="btn text-white" style="background-color: #8DD072" data-toggle="modal" data-target="#agendarCitas">
+                <a [routerLink]="'/citas'" *ngIf="rol === 'Administrador'" class="btn text-white" style="background-color: #8DD072" data-toggle="modal" data-target="#agendarCitas">
                    Agendar Citas
                 </a>
             </div>
@@ -14,7 +14,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <table class="table table-striped" style="text-align: center;">
+            <table datatable [dtTrigger]="dtTrigger" class="table table-striped" style="text-align: center;">
                 <thead class="thead-dark">
                     <tr>
                         <th>ID</th>
@@ -37,8 +37,8 @@
                         <td>{{cita.servicio.nombre}}</td>
                         <td>{{cita.estado.nombre}}</td>
                         <td>
-                            <a class="btn" [routerLink]="'/citas'" data-toggle="modal" data-target="#modificarCitas">
-                                <img src="../../../assets/images/editar.png">
+                            <a class="btn" (click)="editar(cita.id)">
+                                <img src=" ../../../assets/images/editar.png ">
                             </a>
                         </td>
                     </tr>
@@ -47,3 +47,4 @@
         </div>
     </div>
 </div>
+<br>
