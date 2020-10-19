@@ -19,4 +19,11 @@ export class MascotaService {
   public agregar (mascota: Mascota) {
     return this.http.post<boolean> (this.ruta + '/crear', mascota);
   }
+
+  public buscarPorId (id: String) {
+    return this.http.get<Mascota> (this.ruta + '/obtener/' + id);
+  }
+  public listarPorUsuario(idUsuario: number){
+    return this.http.get<Mascota[]> (this.ruta + '/listarPorUsuario' + '/' + idUsuario);
+  }
 }

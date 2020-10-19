@@ -22,6 +22,12 @@ export class UsuarioService {
     return this.http.post<boolean>(this.ruta + '/crear', usuario);
   }
 
+  public buscarUsuario(usuario: Usuario){
+
+    return this.http.post<Usuario>(this.ruta + '/iniciosesion', usuario);
+  }
+
+
   public ListarPorId(id: number) {
     return this.http.get<Usuario>(this.ruta + "/editar/" + id);
   }
