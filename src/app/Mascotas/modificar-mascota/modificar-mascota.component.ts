@@ -30,7 +30,7 @@ export class ModificarMascotaComponent implements OnInit {
         nombre: new FormControl('', Validators.required),
         especie: new FormControl('', Validators.required),
         raza: new FormControl('', Validators.required),
-        edad: new FormControl('', Validators.required),
+        edad: new FormControl('', [Validators.required, Validators.min(0), Validators.max(100)]),
         usuario: new FormControl('', Validators.required)
       });
 
