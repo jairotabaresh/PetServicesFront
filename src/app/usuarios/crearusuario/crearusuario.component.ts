@@ -3,6 +3,7 @@ import { Usuario } from '../../Modelo/Usuario';
 import { Rol } from '../../Modelo/Rol';
 import { RolService } from '../../Service/rol.service';
 import { UsuarioService } from '../../Service/usuario.service';
+import { FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 
@@ -16,11 +17,22 @@ import Swal from 'sweetalert2';
 export class CrearusuarioComponent implements OnInit {
   public usuario = new Usuario();
   public roles: Rol[];
+  public usuarioForm: FormGroup;
+  public camposObligatorios = false;
+
+  private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\']+(\.[^<>()[\]\\.,;:\s@\']+)*)|(\'.+\'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   constructor(private rolService: RolService,
     private usuarioService: UsuarioService) {
     this.listarRol();
     this.usuario.rol = new Rol();
+
+    this.usuarioForm = new FormGroup({
+      nombre: new FormControl('', Validators.required),
+      celular: new FormControl('', Validators.required),
+      correo: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
+      rol: new FormControl('', Validators.required)
+    });
   }
 
   ngOnInit(): void {
@@ -35,47 +47,52 @@ export class CrearusuarioComponent implements OnInit {
 
   }
 
-  public Guardar() {
-    if (this.validarDatos(this.usuario.correo)) {
-      this.usuarioService.Crear(this.usuario).subscribe((respuesta: boolean) => {
-        if (respuesta) {
+  public Validar() {
+    if (this.usuarioForm.valid) {
+      this.usuarioService.ValidarCorreo(this.usuario).subscribe((respuestaCorreo: boolean) => {
+        if (respuestaCorreo) {
           Swal.fire(
-            'Usuario creado',
-            '',
-            'success'
-          ).then(() => {
-            window.location.reload();
-          })
+            'Lo siento',
+            'El correo ingresado ya existe',
+            'error'
+          )
+        } else {
+          this.Guardar();
         }
-      }, err => {
-        Swal.fire(
-          'Lo siento',
-          'Algo salió mal',
-          'error'
-        )
-        console.log("Error");
       });
-    }
-    else { 
+    } else {
+      this.camposObligatorios = true;
       Swal.fire(
-        'Formato email',
-        'Incorrecto',
-        'error'
+        'No se pudo enviar los datos',
+        'Por favor revise que la información este correcta',
+        'error',
       )
     }
-
   }
 
-  public validarDatos(email: String): boolean {
-
-    let mailValido = false;
-    'use strict';
-
-    var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-    if (email.match(EMAIL_REGEX)) {
-      mailValido = true;
-    }
-    return mailValido;
+  public Guardar() {
+    this.usuarioService.Crear(this.usuario).subscribe((respuesta: boolean) => {
+      if (respuesta) {
+        Swal.fire(
+          'Usuario creado',
+          '',
+          'success'
+        ).then(() => {
+          window.location.reload();
+        })
+      }
+    }, err => {
+      Swal.fire(
+        'Lo siento',
+        'Algo salió mal',
+        'error'
+      )
+      console.log("Error");
+    });
   }
+
+  public validarControles(nombreControl: string): boolean {
+    return (this.usuarioForm.get(nombreControl).invalid);
+  }
+
 }

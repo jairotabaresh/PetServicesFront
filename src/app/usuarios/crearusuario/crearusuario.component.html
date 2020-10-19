@@ -17,41 +17,53 @@
             <div class="modal-header bg-light text-success">
                 <div class="container text-center">
                     <h1>Crear Usuario</h1>
-                    <form id="" method="POST" class="was-validated">
+                    <form [formGroup]="usuarioForm">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="text" [(ngModel)]="usuario.nombre" class=" form-control " name="nombre " placeholder="Ingresa tu nombre " required="true">
+                                    <input type="text" formControlName="nombre" [(ngModel)]="usuario.nombre" class=" form-control " name="nombre " placeholder="Ingresa tu nombre " required>
+                                    <div class="text-danger" *ngIf="camposObligatorios && validarControles('nombre')">
+                                        El nombre es obligatorio
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 ">
                                 <div class="form-group ">
-                                    <input type="number" class="form-control" [(ngModel)]="usuario.celular" name="celular " placeholder="Ingresa tu celular " required="true">
+                                    <input type="number" formControlName="celular" class="form-control" [(ngModel)]="usuario.celular" name="celular " placeholder="Ingresa tu celular " required>
+                                    <div class="text-danger" *ngIf="camposObligatorios && validarControles('celular')">
+                                        El celular es obligatorio
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 ">
                                 <div class="form-group ">
-                                    <input type="email" class="form-control" [(ngModel)]="usuario.correo" name="correo" placeholder=" Ingresa tu correo" required="true">
+                                    <input type="email" formControlName="correo" class="form-control" [(ngModel)]="usuario.correo" name="correo" placeholder=" Ingresa tu correo" required>
+                                    <div class="text-danger" *ngIf="camposObligatorios && validarControles('correo')">
+                                        El correo es obligatorio o tiene un formato incorrecto
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 ">
                                 <div class="form-group ">
-                                    <input type="text" class="form-control " [(ngModel)]="usuario.direccion " name="direccion " placeholder="Ingresa tu dirección " required="true">
+                                    <input type="text" class="form-control " [(ngModel)]="usuario.direccion " name="direccion " placeholder="Ingresa tu dirección">
                                 </div>
                             </div>
 
                             <div class="col-md-12 ">
                                 <div class="form-group ">
-                                    <select class="custom-select d-block form-control" name="rol" [(ngModel)]="usuario.rol.id"
-                                    required="true">
+                                    <select formControlName="rol" class="custom-select d-block form-control" name="rol" [(ngModel)]="usuario.rol.id"
+                                    required>
 									  <option *ngFor="let rol of roles "  [value]="rol.id ">{{rol.nombre}}</option>
 									 </select>
+                                     <div class="text-danger" *ngIf="camposObligatorios && validarControles('rol')">
+                                         El rol es obligatorio
+                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-md-12 ">
                                 <div class="submit-button text-center ">
-                                    <button class="btn btn-common" (click)="Guardar()" type="submit">
+                                    <button class="btn btn-common" (click)="Validar()" type="submit">
                                         Guardar
                                     </button>
                                     <div id=" " class="h3 text-center hidden "></div>
