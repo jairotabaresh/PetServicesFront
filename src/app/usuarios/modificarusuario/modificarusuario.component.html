@@ -11,28 +11,35 @@
 <section class="py-3 mb-3 bg-white"></section>
 <div class="container text-center">
 	<h1>Modificar usuario</h1>
-	<form action="" method="GET" class="was-validated">
+	<form [formGroup]="usuarioEditForm" class="was-validated">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="form-group">
-					<input type="text" [(ngModel)]="usuario.nombre" class=" form-control " name="nombre"
-						required>
+					<input formControlName="nombre" type="text" [(ngModel)]="usuario.nombre" class=" form-control " name="nombre" required>
+					<div class="text-danger" *ngIf="camposObligatorios && validarControles('nombre')">
+						El nombre es obligatorio
+					</div>
 				</div>
 			</div>
 			<div class="col-md-12 ">
 				<div class="form-group ">
-					<input type="number" class="form-control" [(ngModel)]="usuario.celular" name="celular"
-						required>
+					<input formControlName="celular" type="number" class="form-control" [(ngModel)]="usuario.celular" name="celular" required>
+					<div class="text-danger" *ngIf="camposObligatorios && validarControles('celular')">
+						El celular es obligatorio
+					</div>
 				</div>
 			</div>
 			<div class="col-md-12 ">
 				<div class="form-group ">
-					<input type="email" class="form-control" [(ngModel)]="usuario.correo" name="correo" required>
+					<input formControlName="correo" type="email" class="form-control" [(ngModel)]="usuario.correo" name="correo" required>
+					<div class="text-danger" *ngIf="camposObligatorios && validarControles('correo')">
+						El correo es obligatorio o tiene un formato incorrecto
+					</div>
 				</div>
 			</div>
 			<div class="col-md-12 ">
 				<div class="form-group ">
-					<input type="text" class="form-control" [(ngModel)]="usuario.direccion " name="direccion" required>
+					<input type="text" class="form-control" [(ngModel)]="usuario.direccion " name="direccion">
 				</div>
 			</div>
 			<div class="col-md-3"></div>

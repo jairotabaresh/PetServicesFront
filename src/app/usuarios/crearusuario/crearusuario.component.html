@@ -17,36 +17,47 @@
             <div class="modal-header bg-light text-success">
                 <div class="container text-center">
                     <h1>Crear Usuario</h1>
-                    <form id="" class="was-validated">
+                    <form [formGroup]="usuarioForm" class="was-validated">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="text" [(ngModel)]="usuario.nombre" class=" form-control " name="nombre " placeholder="Ingresa tu nombre " required>
+                                    <input type="text" formControlName="nombre" [(ngModel)]="usuario.nombre" class=" form-control " name="nombre " placeholder="Ingresa tu nombre " required>
+                                    <div class="text-danger" *ngIf="camposObligatorios && validarControles('nombre')">
+                                        El nombre es obligatorio
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 ">
                                 <div class="form-group ">
-                                    <input type="number" class="form-control" [(ngModel)]="usuario.celular" name="celular " placeholder="Ingresa tu celular " required>
+                                    <input type="number" formControlName="celular" class="form-control" [(ngModel)]="usuario.celular" name="celular " placeholder="Ingresa tu celular " required>
+                                    <div class="text-danger" *ngIf="camposObligatorios && validarControles('celular')">
+                                        El celular es obligatorio
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 ">
                                 <div class="form-group ">
-                                    <input type="email" class="form-control" [(ngModel)]="usuario.correo" name="correo" placeholder=" Ingresa tu correo" required>
+                                    <input type="email" formControlName="correo" class="form-control" [(ngModel)]="usuario.correo" name="correo" placeholder=" Ingresa tu correo" required>
+                                    <div class="text-danger" *ngIf="camposObligatorios && validarControles('correo')">
+                                        El correo es obligatorio o tiene un formato incorrecto
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 ">
                                 <div class="form-group ">
-                                    <input type="text" class="form-control " [(ngModel)]="usuario.direccion " name="direccion " placeholder="Ingresa tu dirección " required>
+                                    <input type="text" class="form-control " [(ngModel)]="usuario.direccion " name="direccion " placeholder="Ingresa tu dirección">
                                 </div>
                             </div>
 
                             <div class="col-md-12 ">
                                 <div class="form-group ">
-                                    <select class="custom-select d-block form-control" name="rol" [(ngModel)]="usuario.rol.id"
+                                    <select formControlName="rol" class="custom-select d-block form-control" name="rol" [(ngModel)]="usuario.rol.id"
                                     required>
-                                      <option selected disabled value="">Elige una opción</option>
 									  <option *ngFor="let rol of roles "  [value]="rol.id ">{{rol.nombre}}</option>
 									 </select>
+                                     <div class="text-danger" *ngIf="camposObligatorios && validarControles('correo')">
+                                         El rol es obligatorio
+                                     </div>
                                 </div>
                             </div>
 
