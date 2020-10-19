@@ -11,8 +11,18 @@ import Swal from 'sweetalert2';
 })
 export class ModificarusuarioComponent implements OnInit {
   public usuario = new Usuario();
-  
-  constructor(private usuarioService: UsuarioService, private router: Router) { }
+  public idUsuario = localStorage.getItem('Id');
+  public rol = localStorage.getItem('Rol');
+
+  constructor(private usuarioService: UsuarioService, private router: Router) {
+    if (this.idUsuario === null ){
+      this.router.navigate(['iniciosesion']);
+    }
+
+    if (this.idUsuario !== null && this.rol !== 'Administrador' ){
+      this.router.navigate(['app']);
+    }
+   }
 
   ngOnInit(): void {
     this.Editar();

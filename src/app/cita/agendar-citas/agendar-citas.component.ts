@@ -36,7 +36,6 @@ export class AgendarCitasComponent implements OnInit {
   constructor(private citaService: CitaService,
               private usuarioService: UsuarioService,
               private servicioService: ServicioService,
-              private estadoService: EstadoService,
               private mascotaService: MascotaService ) {
 
                 this.cita.servicio = new Servicio();
@@ -58,7 +57,7 @@ export class AgendarCitasComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public listarUsuario(){
+  public listarUsuario(): void{
     this.usuarioService.Listar().subscribe((respuesta: Usuario[]) => {
       this.usuarios = respuesta;
     }, err => {
@@ -66,7 +65,7 @@ export class AgendarCitasComponent implements OnInit {
     });
   }
 
-  public listarMascota(){
+  public listarMascota(): void{
    this.mascotaService.listarPorUsuario(this.idUsuario).subscribe((resultado: Mascota[]) => {
     this.mascotas = resultado;
    }, err => {
@@ -74,7 +73,7 @@ export class AgendarCitasComponent implements OnInit {
    });
   }
 
-  public listarServicio(){
+  public listarServicio(): void{
     this.servicioService.Lista().subscribe((respuesta: Servicio[]) => {
       this.servicios = respuesta;
     }, err => {
@@ -82,7 +81,7 @@ export class AgendarCitasComponent implements OnInit {
     });
   }
 
-  public Guardar(){
+  public Guardar(): void{
     if (this.citaForm.valid) {
       this.cita.hora = this.cita.hora;
       this.citaService.Crear(this.cita).subscribe((respuesta: boolean) => {

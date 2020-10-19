@@ -5,6 +5,11 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'PetService';
+
+  public idUsuario = localStorage.getItem('Id');
+  public rol = localStorage.getItem('Rol');
+
 }

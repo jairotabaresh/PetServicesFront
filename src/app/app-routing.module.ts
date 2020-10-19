@@ -23,8 +23,8 @@ import { CitaComponent } from './cita/cita/cita.component';
 
 
 
-//Imports de modulo de inicio sesión
-import { IniciarsesionComponent } from './iniciarsesion/iniciarsesion.component'; 
+// Imports de modulo de inicio sesión
+import { IniciarsesionComponent } from './iniciarsesion/iniciarsesion.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { IniciorecuperaComponent } from './iniciorecupera/iniciorecupera.component';
 import { ModificarusuarioComponent } from './usuarios/modificarusuario/modificarusuario.component';
@@ -96,7 +96,7 @@ const routes: Routes = [
     component: ModificarusuarioComponent,
   },
 
-  //rutas para Modulo inicio session
+  // rutas para Modulo inicio session
 
   {
     path: 'iniciosesion',
@@ -122,7 +122,6 @@ const routes: Routes = [
     redirectTo: 'app', pathMatch: 'full'
   },
 
-  
   {
     path: '**',
     redirectTo: 'app', pathMatch: 'full'

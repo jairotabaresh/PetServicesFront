@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Correo } from '../Modelo/Correo';
 import { CorreoService } from '../Service/correo.service';
+import { Router } from '@angular/router';
 
 
 
@@ -13,7 +14,15 @@ import { CorreoService } from '../Service/correo.service';
 
 export class ContactComponent implements OnInit {
   public correo = new Correo();
-  constructor(private correoService: CorreoService) { }
+  public idUsuario = localStorage.getItem('Id');
+  public rol = localStorage.getItem('Rol');
+
+  constructor(private correoService: CorreoService,
+              private router: Router) {
+                if (this.idUsuario !== null ){
+                  this.router.navigate(['app']);
+                }
+              }
 
   ngOnInit(): void {
   }

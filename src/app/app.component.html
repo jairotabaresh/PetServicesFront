@@ -1,3 +1,5 @@
+<app-header> </app-header>
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -10,23 +12,23 @@
             <div class="carousel-caption d-none d-md-block">
                 <h1 class="m-b-20"><strong>Bienvenido A <br/> <span class="PetService">Pet Service</span></strong></h1>
                 <p>Estamos comprometidos con el bienestar de tu mascota desde nuestro trabajo en la prevención, el acompañamiento al paciente en su recuperación y principalmente en la calidad en nuestros procedimientos médicos de atención veterinaria.</p>
-                <a class="btn btn-lg btn-circle btn-outline-new-white" [routerLink]="['/about']">Leer más</a>
+                <a class="btn btn-lg btn-circle btn-outline-new-white" [routerLink]="['/about']" *ngIf="idUsuario === null">Leer más</a>
             </div>
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="../assets/images/slider-02.jpg" alt="Second slide ">
+            <img class="d-block w-100" src="../assets/images/slider-02.jpg" alt="Second slide">
             <div class="carousel-caption d-none d-md-block">
                 <h1 class="m-b-20"><strong><span class="PetService">Conoce nuestros </span> <br/> Servicios</strong></h1>
                 <p>Estamos comprometidos con el bienestar de tu mascota desde nuestro trabajo en la prevención, el acompañamiento al paciente en su recuperación y principalmente en la calidad en nuestros procedimientos médicos de atención veterinaria.</p>
-                <a class="btn btn-lg btn-circle btn-outline-new-white" [routerLink]="['/service']">Leer más</a>
+                <a class="btn btn-lg btn-circle btn-outline-new-white" [routerLink]="['/service']" *ngIf="idUsuario === null">Leer más</a>
             </div>
         </div>
-        <div class="carousel-item ">
-            <img class="d-block w-100 " src="../assets/images/slider-03.jpg" alt="Third slide ">
+        <div class="carousel-item">
+            <img class="d-block w-100" src="../assets/images/slider-03.jpg" alt="Third slide">
             <div class="carousel-caption d-none d-md-block">
                 <h1 class="m-b-20"><strong> <span class="PetService">Contáctanos</span></strong></h1>
                 <p>Estamos comprometidos con el bienestar de tu mascota desde nuestro trabajo en la prevención, el acompañamiento al paciente en su recuperación y principalmente en la calidad en nuestros procedimientos médicos de atención veterinaria.</p>
-                <a class="btn btn-lg btn-circle btn-outline-new-white" [routerLink]="['/contact']" routerLinkActive="router-link-active">Leer más</a>
+                <a class="btn btn-lg btn-circle btn-outline-new-white" [routerLink]="['/contact']" *ngIf="idUsuario === null">Leer más</a>
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

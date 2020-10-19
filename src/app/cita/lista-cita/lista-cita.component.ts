@@ -9,6 +9,8 @@ import { Cita } from '../../Modelo/Cita';
 })
 export class ListaCitaComponent implements OnInit {
   public citas: Cita[];
+  public idUsuario = localStorage.getItem('Id');
+  public rol = localStorage.getItem('Rol');
 
   constructor( private citaService: CitaService) {
     this.listar();
@@ -17,7 +19,7 @@ export class ListaCitaComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public listar(){
+  public listar(): void{
     this.citaService.Lista().subscribe((respuesta: Cita[]) => {
       this.citas = respuesta;
     }, err => {

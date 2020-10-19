@@ -14,12 +14,22 @@ export class ModificarMascotaComponent implements OnInit {
 
   public usuarios: Usuario[];
   public mascota: Mascota;
+  public idUsuario = localStorage.getItem('Id');
+  public rol = localStorage.getItem('Rol');
 
-  constructor(private router: Router, 
-              private mascotaService: MascotaService, 
-              private usuarioService: UsuarioService) { 
+  constructor(private router: Router,
+              private mascotaService: MascotaService,
+              private usuarioService: UsuarioService) {
       this.mascota = new Mascota();
       this.mascota.usuario = new Usuario();
+
+      if (this.idUsuario === null ){
+        this.router.navigate(['iniciosesion']);
+      }
+
+      if (this.idUsuario !== null && this.rol !== 'Administrador' ){
+        this.router.navigate(['app']);
+      }
     }
 
   ngOnInit(): void {

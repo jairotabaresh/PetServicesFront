@@ -1,70 +1,70 @@
+<app-header> </app-header>
 <!--Formulario de modificar mascota-->
 <!-- Start All Pages -->
 <div class="all-page-title page-breadcrumb">
-	<div class="container text-center">
-		<div class="row">
-			<div class="col-lg-12">
-				<h1>Mascotas</h1>
-			</div>
-		</div>
-	</div>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Mascotas</h1>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- End All Pages -->
 <div class="container text-center"><br><br>
-	<h1>Modificar mascota</h1>
-	<form action="" method="get">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="form-group">
-					<input [(ngModel)]="mascota.nombre" type="text" class="form-control" id="mascota.nombre" name="mascota.nombre" placeholder="Nombre de tu mascota" required data-error="Entra el nombre de tu mascota">
-					<div class="help-block with-errors"></div>
-				</div>                                 
-			</div>
-			<div class="col-md-12">
-				<div class="form-group">
-					<input [(ngModel)]="mascota.especie" type="text" class="form-control" id="mascota.especie" name="mascota.especie" placeholder="Especie" required data-error="Entra la especie de tu mascota">
-					<div class="help-block with-errors"></div>
-				</div>                                 
-			</div>
-			<div class="col-md-12">
-				<div class="form-group">
-					<input [(ngModel)]="mascota.raza" type="text" class="form-control" id="mascota.raza" name="mascota.raza" placeholder="Raza">
-					<div class="help-block with-errors"></div>
-				</div> 
-			</div>
-			<div class="col-md-12">
-				<div class="form-group">
-					<input [(ngModel)]="mascota.edad" type="number" class="form-control" id="mascota.edad" name="mascota.edad" placeholder="Edad de tu mascota" required data-error="Ingresa la edad de tu mascota">
-					<div class="help-block with-errors"></div>
-				</div> 
-			</div>
-			<div class="col-md-12">
-				<div class="form-group">
-					<select [(ngModel)]="mascota.usuario.id" class="custom-select d-block form-control" id="mascota.usuario.id" 
-					required data-error="Ingresa el usuario al cual pertenece esta mascota" name="usuario">
+    <h1>Modificar mascota</h1>
+    <form action="" method="get">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input [(ngModel)]="mascota.nombre" type="text" class="form-control" id="mascota.nombre" name="mascota.nombre" placeholder="Nombre de tu mascota" required data-error="Entra el nombre de tu mascota">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input [(ngModel)]="mascota.especie" type="text" class="form-control" id="mascota.especie" name="mascota.especie" placeholder="Especie" required data-error="Entra la especie de tu mascota">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input [(ngModel)]="mascota.raza" type="text" class="form-control" id="mascota.raza" name="mascota.raza" placeholder="Raza">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input [(ngModel)]="mascota.edad" type="number" class="form-control" id="mascota.edad" name="mascota.edad" placeholder="Edad de tu mascota" required data-error="Ingresa la edad de tu mascota">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <select [(ngModel)]="mascota.usuario.id" class="custom-select d-block form-control" id="mascota.usuario.id" required data-error="Ingresa el usuario al cual pertenece esta mascota" name="usuario">
 						<option selected>{{mascota.usuario.id}} -- {{mascota.usuario.nombre}}</option>
 						<option *ngFor="let usuario of usuarios" [value]="usuario.id">{{usuario.id}} -- {{usuario.nombre}}</option>
 					</select>
-					<div class="help-block with-errors"></div>
-				</div> 
-			</div>
-			<div class="col-md-3"></div>
-			<div class="col-md-3">
-				<div class="submit-button text-center">
-					<button class="btn btn-common" (click)= "Actualizar()" id="guardar" name="guardar" type="submit">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3">
+                <div class="submit-button text-center">
+                    <button class="btn btn-common" (click)="Actualizar()" id="guardar" name="guardar" type="submit">
 						Actualizar
 					</button>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="submit-button text-center">
-					<button class="btn btn-danger" (click)= "Volver()" id="borrar" name="borrar" type="submit">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="submit-button text-center">
+                    <button class="btn btn-danger" (click)="Volver()" id="borrar" name="borrar" type="submit">
 						Volver
 					</button>
-				</div>
-			</div>
-			<div class="col-md-3"></div>
-			<div class="col-md-12"></div> <br><br>
-		</div>            
-	</form>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-12"></div> <br><br>
+        </div>
+    </form>
 </div>

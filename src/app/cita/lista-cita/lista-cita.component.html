@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-6">
-                <a [routerLink]="'/citas'" class="btn text-white" style="background-color: #8DD072" data-toggle="modal" data-target="#agendarCitas">
+                <a [routerLink]="'/citas'" *ngIf="rol === 'Administrador'" class="btn text-white" style="background-color: #8DD072" data-toggle="modal" data-target="#agendarCitas">
                    Agendar Citas
                 </a>
             </div>
