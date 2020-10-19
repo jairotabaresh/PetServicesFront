@@ -20,8 +20,8 @@ export class IniciarsesionComponent implements OnInit {
   
   constructor(private usuarioService: UsuarioService) {
     this.iniciosesionForm = new FormGroup({
-      correo: new FormControl('',Validators.required),
-      contrasena: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]) 
+      contrasena: new FormControl('',Validators.required),
+      correo: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]) 
     })
     
    }
@@ -30,8 +30,9 @@ export class IniciarsesionComponent implements OnInit {
   }
 
   public Validar(){
-    
-    this.usuarioService.buscarUsuario(this.usuario).subscribe((respuesta:Usuario)=> {
+    if (this.iniciosesionForm.valid){   
+
+      this.usuarioService.buscarUsuario(this.usuario).subscribe((respuesta:Usuario)=> {
       
       if (respuesta.correo != this.usuario.correo){
         Swal.fire(
@@ -40,9 +41,18 @@ export class IniciarsesionComponent implements OnInit {
           'success'
         )
        } else {
-         
+          console.log('Preguntar a Brahyan');
        }
     });
+  } else{
+    this.camposObligatorios = true;
+    Swal.fire({
+        title: 'No se pudo enviar los datos',
+        text: 'Por favor revise que la información este correcta',
+        //icon: 'error',
+        confirmButtonText: 'Aceptar'
+    });
+  }
   }
 
   public validarControles(nombreControl: string): boolean {
