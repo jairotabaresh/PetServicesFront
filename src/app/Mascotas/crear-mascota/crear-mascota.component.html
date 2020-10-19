@@ -6,7 +6,6 @@
             <div class="col-md-6">
                 <a [routerLink] = "'/mascota'" class="btn text-white" style="background-color: #8DD072"
                    data-toggle="modal" data-target="#crearMascota">
-                    <i class="fas fa-user-plus"></i>
                     Crear mascota  
                 </a>
             </div>
@@ -19,40 +18,60 @@
 			<div class="modal-header bg-light text-success">
 				<div class="container text-center">
 					<h1>Ingresar mascota</h1>
-					<form action="" method="get">
+					<form action="" method="get" [formGroup]="crearMascotaForm">
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<input [(ngModel)]="mascota.nombre" type="text" class="form-control" id="mascota.nombre" name="mascota.nombre" placeholder="Nombre de tu mascota" required data-error="Entra el nombre de tu mascota">
+									<input formControlName="nombre" [(ngModel)]="mascota.nombre" type="text" class="form-control" id="mascota.nombre" name="mascota.nombre" placeholder="Nombre de tu mascota" required data-error="Entra el nombre de tu mascota">
 									<div class="help-block with-errors"></div>
+
+									<div class="text-danger" *ngIf="camposObligatorios && validarControles('nombre')">
+                                        El nombre es obligatorio
+                                    </div>
 								</div>                                 
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input [(ngModel)]="mascota.especie" type="text" class="form-control" id="mascota.especie" name="mascota.especie" placeholder="Especie" required data-error="Entra la especie de tu mascota">
+									<input formControlName="especie" [(ngModel)]="mascota.especie" type="text" class="form-control" id="mascota.especie" name="mascota.especie" placeholder="Especie" required data-error="Entra la especie de tu mascota">
 									<div class="help-block with-errors"></div>
+									
+									<div class="text-danger" *ngIf="camposObligatorios && validarControles('especie')">
+                                        La especie es obligatoria
+                                    </div>
 								</div>                                 
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input [(ngModel)]="mascota.raza" type="text" class="form-control" id="mascota.raza" name="mascota.raza" placeholder="Raza">
+									<input formControlName="raza" [(ngModel)]="mascota.raza" type="text" class="form-control" id="mascota.raza" name="mascota.raza" placeholder="Raza">
 									<div class="help-block with-errors"></div>
+
+									<div class="text-danger" *ngIf="camposObligatorios && validarControles('raza')">
+                                        La raza es obligatoria
+                                    </div>
 								</div> 
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input [(ngModel)]="mascota.edad" type="number" class="form-control" id="mascota.edad" name="mascota.edad" placeholder="Edad de tu mascota" required data-error="Ingresa la edad de tu mascota">
+									<input formControlName="edad" [(ngModel)]="mascota.edad" type="number" class="form-control" id="mascota.edad" name="mascota.edad" placeholder="Edad de tu mascota" required data-error="Ingresa la edad de tu mascota">
 									<div class="help-block with-errors"></div>
+
+									<div class="text-danger" *ngIf="camposObligatorios && validarControles('edad')">
+                                        La edad es obligatoria y debe estar en el rango (0 - 100)
+                                    </div>
 								</div> 
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
 									<select class="custom-select d-block form-control" [(ngModel)]="mascota.usuario.id"
-									required data-error="Ingresa el usuario al cual pertenece esta mascota" name="usuario">
+									required data-error="Ingresa el usuario al cual pertenece esta mascota" name="usuario" formControlName="usuario">
 									  <option disabled selected>Ingresa el usuario al cual pertenece esta mascota</option>
 									  <option *ngFor= "let usuario of usuarios" [value]="usuario.id">{{usuario.id}}-{{usuario.nombre}}</option>
 									</select>
 									<div class="help-block with-errors"></div>
+
+									<div class="text-danger" *ngIf="camposObligatorios && validarControles('usuario')">
+                                        El usuario es obligatorio
+                                    </div>
 								</div> 
 							</div>
 							<div class="col-md-3"></div>

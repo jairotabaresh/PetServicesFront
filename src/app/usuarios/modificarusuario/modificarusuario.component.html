@@ -8,29 +8,36 @@
         </div>
     </div>
 </div>
+
 <section class="py-3 mb-3 bg-white"></section>
 <div class="container text-center">
     <h1>Modificar usuario</h1>
-    <form action="" method="get">
+    <form [formGroup]="usuarioEditForm">
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <input type="text" [(ngModel)]="usuario.nombre" class=" form-control " name="nombre " required data-error="Por favor ingresa el nombre ">
+                    <input formControlName="nombre" type="text" [(ngModel)]="usuario.nombre" class=" form-control " name="nombre" required>
+                    <div class="text-danger" *ngIf="camposObligatorios && validarControles('nombre')">
+                        El nombre es obligatorio
+                    </div>
                 </div>
             </div>
             <div class="col-md-12 ">
                 <div class="form-group ">
-                    <input type="text " class="form-control" [(ngModel)]="usuario.celular" name="celular " required data-error="Por favor ingresa el celular ">
+                    <input formControlName="celular" type="number" class="form-control" [(ngModel)]="usuario.celular" name="celular" required>
+                    <div class="text-danger" *ngIf="camposObligatorios && validarControles('celular')">
+                        El celular es obligatorio
+                    </div>
                 </div>
             </div>
             <div class="col-md-12 ">
                 <div class="form-group ">
-                    <input type="text" class="form-control" [(ngModel)]="usuario.correo" name="correo" data-error="Por favor ingresa el correo ">
+                    <input formControlName="correo" type="email" class="form-control" [(ngModel)]="usuario.correo" name="correo" readonly>
                 </div>
             </div>
             <div class="col-md-12 ">
                 <div class="form-group ">
-                    <input type="text " class="form-control " [(ngModel)]="usuario.direccion " name="direccion " data-error="Por favor ingresa la dirección ">
+                    <input formControlName="direccion" type="text" class="form-control" [(ngModel)]="usuario.direccion " name="direccion">
                 </div>
             </div>
             <div class="col-md-3"></div>

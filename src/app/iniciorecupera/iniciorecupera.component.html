@@ -19,13 +19,18 @@
     <div class="modal-content">
         <div class="modal-header bg-light text-success">
             <div class="container text-center">
-                <h1>Recuperar contrase&ntilde;a</h1>
-                <form id="">
+                <h1>Recuperar contraseña</h1>
+                <form [formGroup]="recuperaForm">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input type="text" [(ngModel)]="correo.correo" class="form-control" id="correo" name="correo" placeholder="Ingresa tu correo electrónico" required data-error="Por favor ingresa el correo electr&otilde;nico">
+                                <input type="text" formControlName="correo" [(ngModel)]="correo.correo" class="form-control" id="correo" name="correo" placeholder="Ingresa tu correo electrónico">
                                 <div class="help-block with-errors"></div>
+
+
+                                <div class="text-danger" *ngIf="camposObligatorios && validarControles('correo')">
+                                    El correo es obligatorio o no tiene el formato correcto
+                                </div>
                             </div>
                         </div>
 
