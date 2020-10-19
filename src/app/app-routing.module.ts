@@ -28,6 +28,7 @@ import { IniciarsesionComponent } from './iniciarsesion/iniciarsesion.component'
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { IniciorecuperaComponent } from './iniciorecupera/iniciorecupera.component';
 import { ModificarusuarioComponent } from './usuarios/modificarusuario/modificarusuario.component';
+import { MoficarCitasComponent } from './cita/moficar-citas/moficar-citas.component';
 
 const routes: Routes = [
   {
@@ -117,6 +118,12 @@ const routes: Routes = [
     path: 'citas',
     component: CitaComponent,
   },
+
+  {
+    path: 'modificarCitas',
+    component: MoficarCitasComponent
+  },
+
   {
     path: '',
     redirectTo: 'app', pathMatch: 'full'

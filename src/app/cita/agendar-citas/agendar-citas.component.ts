@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 import Swal from 'sweetalert2';
 
 /* Modelo */
@@ -83,7 +83,6 @@ export class AgendarCitasComponent implements OnInit {
 
   public Guardar(): void{
     if (this.citaForm.valid) {
-      this.cita.hora = this.cita.hora;
       this.citaService.Crear(this.cita).subscribe((respuesta: boolean) => {
         if (respuesta){
           Swal.fire({
