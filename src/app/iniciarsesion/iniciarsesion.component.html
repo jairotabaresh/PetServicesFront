@@ -17,22 +17,24 @@
 		<div class="modal-content">
 			<div class="modal-header bg-light text-success">
 				<div class="container text-center">
+					
 					<h1>Iniciar Sesi&oacute;n</h1>
-					<form id="">
+					<form [formGroup]="iniciosesionForm">
+							
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" [(ngModel)]="usuario.correo" class="form-control" name="correo"
-										placeholder="Ingresa su correo electronico" required
-										data-error="Por favor ingresa el usuario">
+									<input type="text" formControlName="correo"  [(ngModel)]="usuario.correo" class="form-control" name="correo"
+										placeholder="Ingresa su correo electronico">
+									<div class= "text-danger" *ngIf="camposObligatorios && validarControles('correo')">El correo es obligatorio</div>
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="password" [(ngModel)]="usuario.contrasena" placeholder=""  class="form-control" name="contrasena"
-										placeholder="Ingresa tu contrase&ntilde;a" required
-										data-error="Por favor ingresa la contrase&ntilde;a">
+									<input type="password" formControlName="contrasena" [(ngModel)]="usuario.contrasena" class="form-control" name="contrasena"
+										placeholder="Ingresa tu contrase&ntilde;a">
+										<div class= "text-danger" *ngIf="camposObligatorios && validarControles('contrasena')">La contraseña es obligatoria</div>		
 									<div class="help-block with-errors"></div>
 									<div id="" class="h3 text-center hidden"></div>
 									<div class="clearfix"></div>

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../Modelo/Usuario';
 import { UsuarioService } from '../Service/usuario.service';
 import Swal from 'sweetalert2';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-iniciarsesion',
@@ -12,9 +13,18 @@ import Swal from 'sweetalert2';
 export class IniciarsesionComponent implements OnInit {
 
   public usuario = new Usuario();
+  public iniciosesionForm : FormGroup;
+  public camposObligatorios = false;
+  private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\']+(\.[^<>()[\]\\.,;:\s@\']+)*)|(\'.+\'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   
   
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService) {
+    this.iniciosesionForm = new FormGroup({
+      correo: new FormControl('',Validators.required),
+      contrasena: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]) 
+    })
+    
+   }
 
   ngOnInit(): void {
   }
@@ -29,8 +39,15 @@ export class IniciarsesionComponent implements OnInit {
           '',
           'success'
         )
+       } else {
+         
        }
     });
   }
+
+  public validarControles(nombreControl: string): boolean {
+    return (this.iniciosesionForm.get(nombreControl).invalid);
+  }
+
 
 }
