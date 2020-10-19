@@ -31,15 +31,12 @@
 			</div>
 			<div class="col-md-12 ">
 				<div class="form-group ">
-					<input formControlName="correo" type="email" class="form-control" [(ngModel)]="usuario.correo" name="correo" required>
-					<div class="text-danger" *ngIf="camposObligatorios && validarControles('correo')">
-						El correo es obligatorio o tiene un formato incorrecto
-					</div>
+					<input formControlName="correo" type="email" class="form-control" [(ngModel)]="usuario.correo" name="correo" readonly>
 				</div>
 			</div>
 			<div class="col-md-12 ">
 				<div class="form-group ">
-					<input type="text" class="form-control" [(ngModel)]="usuario.direccion " name="direccion">
+					<input formControlName="direccion" type="text" class="form-control" [(ngModel)]="usuario.direccion " name="direccion">
 				</div>
 			</div>
 			<div class="col-md-3"></div>

@@ -47,25 +47,18 @@ export class CrearusuarioComponent implements OnInit {
 
   }
 
-  public Guardar() {
+  public Validar() {
     if (this.usuarioForm.valid) {
-      this.usuarioService.Crear(this.usuario).subscribe((respuesta: boolean) => {
-        if (respuesta) {
+      this.usuarioService.ValidarCorreo(this.usuario).subscribe((respuestaCorreo: boolean) => {
+        if (respuestaCorreo) {
           Swal.fire(
-            'Usuario creado',
-            '',
-            'success'
-          ).then(() => {
-            window.location.reload();
-          })
+            'Lo siento',
+            'El correo ingresado ya existe',
+            'error'
+          )
+        } else {
+          this.Guardar();
         }
-      }, err => {
-        Swal.fire(
-          'Lo siento',
-          'Algo salió mal',
-          'error'
-        )
-        console.log("Error");
       });
     } else {
       this.camposObligatorios = true;
@@ -75,6 +68,27 @@ export class CrearusuarioComponent implements OnInit {
         'error',
       )
     }
+  }
+
+  public Guardar() {
+    this.usuarioService.Crear(this.usuario).subscribe((respuesta: boolean) => {
+      if (respuesta) {
+        Swal.fire(
+          'Usuario creado',
+          '',
+          'success'
+        ).then(() => {
+          window.location.reload();
+        })
+      }
+    }, err => {
+      Swal.fire(
+        'Lo siento',
+        'Algo salió mal',
+        'error'
+      )
+      console.log("Error");
+    });
   }
 
   public validarControles(nombreControl: string): boolean {

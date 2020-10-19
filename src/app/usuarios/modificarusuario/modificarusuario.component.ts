@@ -21,7 +21,8 @@ export class ModificarusuarioComponent implements OnInit {
     this.usuarioEditForm = new FormGroup({
       nombre: new FormControl('', Validators.required),
       celular: new FormControl('', Validators.required),
-      correo: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)])
+      correo: new FormControl(''),
+      direccion: new FormControl(''),
     });
   }
 
@@ -36,7 +37,7 @@ export class ModificarusuarioComponent implements OnInit {
         this.usuario = respuesta;
       });
   }
-
+  
   public Actualizar(usuario: Usuario) {
     if (this.usuarioEditForm.valid) {
       this.usuarioService.ActualizarUsuario(usuario).subscribe(respuesta => {
