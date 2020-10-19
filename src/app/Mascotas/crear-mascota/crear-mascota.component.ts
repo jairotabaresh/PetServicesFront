@@ -3,6 +3,8 @@ import { MascotaService } from '../../Service/mascota.service';
 import { Mascota } from '../../Modelo/Mascota';
 import { Usuario } from '../../Modelo/Usuario';
 import { UsuarioService } from 'src/app/Service/usuario.service';
+import Swal from 'sweetalert2';
+import {FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-crear-mascota',
@@ -13,11 +15,20 @@ export class CrearMascotaComponent implements OnInit {
 
   public usuarios: Usuario[];
   public mascota: Mascota;
+  public crearMascotaForm: FormGroup;
+  public camposObligatorios = false;
 
   constructor(private mascotaService: MascotaService, 
                 private usuarioService: UsuarioService) {
     this.mascota = new Mascota();
     this.mascota.usuario = new Usuario();
+    this.crearMascotaForm = new FormGroup({
+      nombre: new FormControl('', Validators.required),
+      especie: new FormControl('', Validators.required),
+      raza: new FormControl('', Validators.required),
+      edad: new FormControl('', [Validators.required, Validators.min(0), Validators.max(100)]),
+      usuario: new FormControl('', Validators.required)
+    });
   }
 
   ngOnInit(): void {
@@ -33,12 +44,43 @@ export class CrearMascotaComponent implements OnInit {
   }
 
   public guardar () {
-    this.mascotaService.agregar(this.mascota).subscribe((respuesta: boolean) => {
+    if (this.crearMascotaForm.valid) {
+      this.mascotaService.agregar(this.mascota).subscribe((respuesta: boolean) => {
         if (respuesta == true) {
-          alert("Guardado exitoso");
+          Swal.fire(
+            'Mascota creada',
+            '',
+            'success'
+          ).then(() => {
+            window.location.reload();
+          })
+        }
+        else {
+          Swal.fire(
+            'Lo siento',
+            'Algo salió mal',
+            'error'
+          )
         }
       }, err => {
-        alert("ocurrio un error en el guardado");
+        Swal.fire(
+          'Lo siento',
+          'Algo salió mal',
+          'error'
+        )
       });
+    } else {
+      this.camposObligatorios = true;
+      Swal.fire({
+        title: 'No se pudo enviar los datos',
+        text: 'Por favor revise que la información este correcta',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+    }
+  }
+
+  public validarControles(nombreControl: string): boolean {
+    return  (this.crearMascotaForm.get(nombreControl).invalid);
   }
 }

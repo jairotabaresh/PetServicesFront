@@ -9,6 +9,7 @@
                         <th>Especie</th>
                         <th>Raza</th>
                         <th>Edad</th>
+                        <th>Dueño</th>
                         <th>Editar</th>
                     </tr>
                 </thead>
@@ -19,9 +20,9 @@
                         <td>{{mascota.especie}}</td>
                         <td>{{mascota.raza}}</td>
                         <td>{{mascota.edad}}</td>
+                        <td>{{mascota.usuario.id}}--{{mascota.usuario.nombre}}</td>
                         <td>
-                            <a class="btn" [routerLink] = "'/mascota'" data-toggle="modal" 
-                            data-target="#modificarMascota">
+                            <a class="btn" (click)="Editar(mascota)">
                                 <img src="../../../assets/images/editar.png">
                             </a>
                         </td>
