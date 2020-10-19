@@ -23,11 +23,12 @@ import { CitaComponent } from './cita/cita/cita.component';
 
 
 
-//Imports de modulo de inicio sesión
-import { IniciarsesionComponent } from './iniciarsesion/iniciarsesion.component'; 
+// Imports de modulo de inicio sesión
+import { IniciarsesionComponent } from './iniciarsesion/iniciarsesion.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { IniciorecuperaComponent } from './iniciorecupera/iniciorecupera.component';
 import { ModificarusuarioComponent } from './usuarios/modificarusuario/modificarusuario.component';
+import { MoficarCitasComponent } from './cita/moficar-citas/moficar-citas.component';
 
 const routes: Routes = [
   {
@@ -96,7 +97,7 @@ const routes: Routes = [
     component: ModificarusuarioComponent,
   },
 
-  //rutas para Modulo inicio session
+  // rutas para Modulo inicio session
 
   {
     path: 'iniciosesion',
@@ -117,12 +118,17 @@ const routes: Routes = [
     path: 'citas',
     component: CitaComponent,
   },
+
+  {
+    path: 'modificarCitas',
+    component: MoficarCitasComponent
+  },
+
   {
     path: '',
     redirectTo: 'app', pathMatch: 'full'
   },
 
-  
   {
     path: '**',
     redirectTo: 'app', pathMatch: 'full'

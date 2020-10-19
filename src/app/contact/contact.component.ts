@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
 import { Correo } from '../Modelo/Correo';
 import { CorreoService } from '../Service/correo.service';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 
@@ -15,18 +16,25 @@ import Swal from 'sweetalert2';
 
 export class ContactComponent implements OnInit {
   public correo = new Correo();
+  public idUsuario = localStorage.getItem('Id');
+  public rol = localStorage.getItem('Rol');
   public contactoForm: FormGroup;
   public camposObligatorios = false;
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   private namePattern: any = '^[a-zA-Z ]*$';
 
-  constructor(private correoService: CorreoService) { 
+  constructor(private correoService: CorreoService,
+              private router: Router) {
     this.contactoForm = new FormGroup({
       nombre: new FormControl('', [Validators.required, Validators.pattern(this.namePattern)]),
       correo: new FormControl('', [Validators.required,  Validators.pattern(this.emailPattern)]),
       mascota: new FormControl('', Validators.required),
       comentario: new FormControl('', Validators.required)
     });
+
+    if (this.idUsuario !== null ){
+      this.router.navigate(['app']);
+    }
   }
 
   ngOnInit(): void {

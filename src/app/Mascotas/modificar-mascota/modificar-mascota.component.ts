@@ -16,15 +16,25 @@ export class ModificarMascotaComponent implements OnInit {
 
   public usuarios: Usuario[];
   public mascota: Mascota;
+  public idUsuario = localStorage.getItem('Id');
+  public rol = localStorage.getItem('Rol');
   public modificarMascotaForm: FormGroup;
   public camposObligatorios = false;
 
-  constructor(private router: Router, 
-              private mascotaService: MascotaService, 
-              private usuarioService: UsuarioService) { 
+  constructor(private router: Router,
+              private mascotaService: MascotaService,
+              private usuarioService: UsuarioService) {
       this.mascota = new Mascota();
       this.mascota.usuario = new Usuario();
-      
+
+      if (this.idUsuario === null ){
+        this.router.navigate(['iniciosesion']);
+      }
+
+      if (this.idUsuario !== null && this.rol !== 'Administrador' ){
+        this.router.navigate(['app']);
+      }
+
       this.mascota.usuario = new Usuario();
       this.modificarMascotaForm = new FormGroup({
         nombre: new FormControl('', Validators.required),

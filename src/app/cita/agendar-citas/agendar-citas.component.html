@@ -22,7 +22,7 @@
                             </div>
 
                             <div class="col-md-12" *ngIf="idUsuario !== undefined">
-                                <div class="form-group ">
+                                <div class="form-group">
                                     <select formControlName="mascota" name="idMascota" [(ngModel)]="cita.mascota.id" class="custom-select d-block form-control">
                                       <option *ngFor="let mascota of mascotas" [value]="mascota.id">{{mascota.nombre}}</option>
                                     </select>
@@ -43,18 +43,18 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-12 ">
-                                <div class="form-group ">
+                            <div class="col-md-12">
+                                <div class="form-group">
                                     <input type="time" formControlName="hora" name="hora" [(ngModel)]="cita.hora" step="1" class="form-control" placeholder="Hora Cita" required data-error="Ingresa la hora">
                                     <div class="text-danger" *ngIf="camposObligatorios && validarControles('hora')">
                                         La hora es obligatoria
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 ">
-                                <div class="form-group ">
+                            <div class="col-md-12">
+                                <div class="form-group">
                                     <select formControlName="servicio" name="servicio" [(ngModel)]="cita.servicio.id" class="custom-select d-block form-control">
-                                        <option  *ngFor="let servicio of servicios " [value]="servicio.id ">{{servicio.nombre}}</option>
+                                        <option  *ngFor="let servicio of servicios" [value]="servicio.id">{{servicio.nombre}}</option>
                                     </select>
 
                                     <div class="text-danger" *ngIf="camposObligatorios && validarControles('servicio')">
@@ -62,32 +62,32 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 ">
-                                <div class="form-group ">
-                                    <div class="form-group ">
-                                        <textarea formControlName="comentarios" name="comentarios" [(ngModel)]="cita.comentario" class="form-control" placeholder="Comentarios " rows="4"></textarea>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <textarea formControlName="comentarios" name="comentarios" [(ngModel)]="cita.comentario" class="form-control" placeholder="Comentarios" rows="4"></textarea>
                                     </div>
                                     <div class="text-danger" *ngIf="camposObligatorios && validarControles('comentarios')">
                                         El comentarios es obligatorio
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 "></div>
-                            <div class="col-md-3 ">
-                                <div class="submit-button text-center ">
-                                    <button class="btn btn-common " type="submit " (click)="Guardar() ">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3">
+                                <div class="submit-button text-center">
+                                    <button class="btn btn-common" type="submit" (click)="Guardar()">
 										Agendar
 									</button>
                                 </div>
                             </div>
-                            <div class="col-md-3 ">
-                                <div class="submit-button text-center ">
-                                    <button class="btn btn-danger " type="submit " data-dismiss="modal ">
+                            <div class="col-md-3">
+                                <div class="submit-button text-center">
+                                    <button class="btn btn-danger" type="submit" data-dismiss="modal">
 										Cancelar
 									</button>
                                 </div>
                             </div>
-                            <div class="col-md-3 "></div>
+                            <div class="col-md-3"></div>
                         </div>
                     </form>
                 </div>

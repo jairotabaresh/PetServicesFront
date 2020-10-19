@@ -12,6 +12,8 @@ import Swal from 'sweetalert2';
 })
 export class ModificarusuarioComponent implements OnInit {
   public usuario = new Usuario();
+  public idUsuario = localStorage.getItem('Id');
+  public rol = localStorage.getItem('Rol');
   public usuarioEditForm: FormGroup;
   public camposObligatorios = false;
 
@@ -24,6 +26,14 @@ export class ModificarusuarioComponent implements OnInit {
       correo: new FormControl(''),
       direccion: new FormControl(''),
     });
+
+    if (this.idUsuario === null ){
+      this.router.navigate(['iniciosesion']);
+    }
+
+    if (this.idUsuario !== null && this.rol !== 'Administrador' ){
+      this.router.navigate(['app']);
+    }
   }
 
   ngOnInit(): void {
