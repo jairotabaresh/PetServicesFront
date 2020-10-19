@@ -45,38 +45,56 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-12">
-					<form id="contactForm">
+					<div class="container text-center">
+					<form [formGroup]="contactoForm">
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" [(ngModel)]="correo.nombre" class="form-control" id="name" name="name" placeholder="Por favor ingresa tu nombre" required data-error="Por favor ingresa tu nombre">
+									<input type="text" formControlName="nombre" [(ngModel)]="correo.nombre" class="form-control" id="name" name="name" placeholder="Por favor ingresa tu nombre">
 									<div class="help-block with-errors"></div>
-								</div>                                 
+								
+								<div class="text-danger" *ngIf="camposObligatorios && validarControles('nombre')">
+									El nombre es obligatorio o no tiene el formato correcto
+								</div>  
+							</div>                               
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" [(ngModel)]="correo.correo" placeholder="Por favor ingresa tu email" id="email" class="form-control" name="name" required data-error="Por favor ingresa tu email">
+									<input type="text" formControlName="correo" [(ngModel)]="correo.correo" placeholder="Por favor ingresa tu email" id="email" class="form-control" name="name">
 									<div class="help-block with-errors"></div>
-								</div> 
+								
+								<div class="text-danger" *ngIf="camposObligatorios && validarControles('correo')">
+									El correo es obligatorio o no tiene el formato correcto
+								</div>  
+							</div> 
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<select [(ngModel)]="correo.mascota" class="custom-select d-block form-control" id="guest" required data-error="Por favor selecciona tu mascota" name="mascota">
+									<select formControlName="mascota" [(ngModel)]="correo.mascota" class="custom-select d-block form-control" id="guest" name="mascota">
 									  <option disabled selected>Por favor selecciona tu mascota</option>
-									  <option value="1">Perro</option>
-									  <option value="2">Gato</option>
-									  <option value="3">Tortuga</option>
-									  <option value="4">Pez</option>
-									  <option value="5">Otro</option>
+									  <option value="Perro">Perro</option>
+									  <option value="Gato">Gato</option>
+									  <option value="Gato">Conejo</option>
+									  <option value="Hamster">Hamster</option>
+									  <option value="Tortuga">Tortuga</option>
+									  <option value="Pez">Pez</option>
 									</select>
 									<div class="help-block with-errors"></div>
+								
+								<div class="text-danger" *ngIf="camposObligatorios && validarControles('mascota')">
+									La mascota es obligatoria
 								</div> 
+							</div>  
 							</div>
 							<div class="col-md-12">
 								<div class="form-group"> 
-									<textarea class="form-control" [(ngModel)]="correo.mensaje" id="message" placeholder="Por favor ingresa tu mensaje" rows="4" name = "mensaje" data-error="Por favor ingresa tu mensaje" required></textarea>
+									<textarea formControlName="comentario" class="form-control" [(ngModel)]="correo.mensaje" id="message" placeholder="Por favor ingresa tu mensaje" rows="4" name = "mensaje"></textarea>
 									<div class="help-block with-errors"></div>
-								</div>
+								
+								<div class="text-danger" *ngIf="camposObligatorios && validarControles('comentario')">
+									El comentario es obligatorio
+								</div> 
+							</div> 
 								<div class="submit-button text-center">
 									<button class="btn btn-common" (click)="Enviar()" id="submit" type="submit">Enviar Mensaje</button>
 									<div id="msgSubmit" class="h3 text-center hidden"></div> 
@@ -85,6 +103,7 @@
 							</div>
 						</div>            
 					</form>
+				</div>
 				</div>
 			</div>
 		</div>
