@@ -5,6 +5,8 @@ import { RolService } from '../../Service/rol.service';
 import { UsuarioService } from '../../Service/usuario.service';
 import { FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { Correo } from 'src/app/Modelo/Correo';
+import { CorreoService } from 'src/app/Service/correo.service';
 
 
 
@@ -15,6 +17,7 @@ import Swal from 'sweetalert2';
 })
 
 export class CrearusuarioComponent implements OnInit {
+  public correo = new Correo();
   public usuario = new Usuario();
   public roles: Rol[];
   public usuarioForm: FormGroup;
@@ -23,7 +26,8 @@ export class CrearusuarioComponent implements OnInit {
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\']+(\.[^<>()[\]\\.,;:\s@\']+)*)|(\'.+\'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   constructor(private rolService: RolService,
-    private usuarioService: UsuarioService) {
+    private usuarioService: UsuarioService,
+    private correoService: CorreoService) {
     this.listarRol();
     this.usuario.rol = new Rol();
 
@@ -57,7 +61,7 @@ export class CrearusuarioComponent implements OnInit {
             'error'
           )
         } else {
-          this.Guardar();
+          this.Enviar();
         }
       });
     } else {
@@ -67,6 +71,40 @@ export class CrearusuarioComponent implements OnInit {
         'Por favor revise que la información este correcta',
         'error',
       )
+    }
+  }
+
+  public Enviar() {
+    if (this.usuarioForm.valid) {
+      this.correoService.CrearCorreo(this.correo).subscribe((respuesta: boolean) => {
+        if (respuesta) {
+          this.Guardar();
+          this.usuarioForm.reset();
+          this.correo = new Correo();
+        } else {
+          Swal.fire({
+            title: 'Ha ocurrido un error',
+            text: 'No se ha podido enviar la información',
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+          });
+        }
+      }, err => {
+        Swal.fire({
+          title: 'No se pudo conectar al servidor',
+          text: 'Por favor vuelve a intentarlo más tarde',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
+      });
+    } else {
+      this.camposObligatorios = true;
+      Swal.fire({
+        title: 'No se pudo enviar los datos',
+        text: 'Por favor revise que la información esté correcta',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
     }
   }
 
