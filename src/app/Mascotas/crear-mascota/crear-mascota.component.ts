@@ -37,6 +37,9 @@ export class CrearMascotaComponent implements OnInit {
         if (respuesta == true) {
           alert("Guardado exitoso");
         }
+        else {
+          alert("ocurrio un error en el guardado");
+        }
       }, err => {
         alert("ocurrio un error en el guardado");
       });
