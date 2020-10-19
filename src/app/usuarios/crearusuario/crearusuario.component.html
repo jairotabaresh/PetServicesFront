@@ -17,33 +17,34 @@
             <div class="modal-header bg-light text-success">
                 <div class="container text-center">
                     <h1>Crear Usuario</h1>
-                    <form id="" method="POST" class="was-validated">
+                    <form id="" class="was-validated">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="text" [(ngModel)]="usuario.nombre" class=" form-control " name="nombre " placeholder="Ingresa tu nombre " required="true">
+                                    <input type="text" [(ngModel)]="usuario.nombre" class=" form-control " name="nombre " placeholder="Ingresa tu nombre " required>
                                 </div>
                             </div>
                             <div class="col-md-12 ">
                                 <div class="form-group ">
-                                    <input type="number" class="form-control" [(ngModel)]="usuario.celular" name="celular " placeholder="Ingresa tu celular " required="true">
+                                    <input type="number" class="form-control" [(ngModel)]="usuario.celular" name="celular " placeholder="Ingresa tu celular " required>
                                 </div>
                             </div>
                             <div class="col-md-12 ">
                                 <div class="form-group ">
-                                    <input type="email" class="form-control" [(ngModel)]="usuario.correo" name="correo" placeholder=" Ingresa tu correo" required="true">
+                                    <input type="email" class="form-control" [(ngModel)]="usuario.correo" name="correo" placeholder=" Ingresa tu correo" required>
                                 </div>
                             </div>
                             <div class="col-md-12 ">
                                 <div class="form-group ">
-                                    <input type="text" class="form-control " [(ngModel)]="usuario.direccion " name="direccion " placeholder="Ingresa tu dirección " required="true">
+                                    <input type="text" class="form-control " [(ngModel)]="usuario.direccion " name="direccion " placeholder="Ingresa tu dirección " required>
                                 </div>
                             </div>
 
                             <div class="col-md-12 ">
                                 <div class="form-group ">
                                     <select class="custom-select d-block form-control" name="rol" [(ngModel)]="usuario.rol.id"
-                                    required="true">
+                                    required>
+                                      <option selected disabled value="">Elige una opción</option>
 									  <option *ngFor="let rol of roles "  [value]="rol.id ">{{rol.nombre}}</option>
 									 </select>
                                 </div>
