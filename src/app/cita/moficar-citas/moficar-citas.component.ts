@@ -37,6 +37,8 @@ export class MoficarCitasComponent implements OnInit {
   public idUsuarioModificado: number;
 
   public cita: Cita;
+  public citaForm: FormGroup;
+  public camposObligatorios = false;
 
 
 
@@ -46,12 +48,28 @@ export class MoficarCitasComponent implements OnInit {
               private mascotaService: MascotaService,
               private estadoService: EstadoService,
               private router: Router) {
+
+                this.cita = new Cita();
+                this.cita.mascota = new Mascota();
+                this.cita.estado = new Estado();
+                this.cita.servicio = new Servicio();
+
                 this.buscarCita(parseInt(this.idCita , 0));
 
                 if (this.idUsuario === null ){
                   this.router.navigate(['iniciosesion']);
                 }
- 
+
+                this.citaForm = new FormGroup({
+                  fecha: new FormControl('', [Validators.required, ]),
+                  hora: new FormControl('', Validators.required),
+                  comentarios: new FormControl(),
+                  usuario: new FormControl('', Validators.required),
+                  mascota: new FormControl('', Validators.required),
+                  servicio: new FormControl('', Validators.required),
+                  estado: new FormControl('', Validators.required)
+                });
+
               }
 
   ngOnInit(): void {
@@ -109,45 +127,67 @@ export class MoficarCitasComponent implements OnInit {
 
   public listarEstado(): void{
     this.estadoService.Lista().subscribe((respuesta: Estado[]) => {
-      this.estados = respuesta;
+      if (this.rol === 'Usuario' && respuesta.length > 0){
+        this.estados = new Array();
+        respuesta.forEach(estado => {
+          if (estado.nombre !== 'Atendido' ){
+            console.log(estado.nombre);
+            this.estados.push(estado);
+          }
+        });
+      } else {
+        this.estados = respuesta;
+      }
     }, err => {
       this.estados = new Array();
     });
   }
 
   public actualizar(): void{
-    console.log(this.cita);
-    this.citaService.Crear(this.cita).subscribe((respuesta: boolean) => {
-      if (respuesta){
-        Swal.fire({
-          title: 'Se actualizado correctamente',
-          text: 'Se ha actualizado la cita correctamente',
-          icon: 'success',
-          confirmButtonText: 'Aceptar'
+    if (this.citaForm.valid) {
+        this.citaService.Crear(this.cita).subscribe((respuesta: boolean) => {
+          if (respuesta){
+            Swal.fire({
+              title: 'Se actualizado correctamente',
+              text: 'Se ha actualizado la cita correctamente',
+              icon: 'success',
+              confirmButtonText: 'Aceptar'
+            });
+            localStorage.removeItem('IdCita');
+            this.router.navigate(['citas']);
+          } else {
+            Swal.fire({
+              title: 'Ha ocurrido un error',
+              text: 'La cita no ha sido actualizada',
+              icon: 'error',
+              confirmButtonText: 'Aceptar'
+            });
+          }
+        }, err => {
+          Swal.fire({
+            title: 'No se pudo conectar al servidor',
+            text: 'Por favor vuelve a intentarlo más tarde',
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+          });
         });
-        localStorage.removeItem('IdCita');
-        this.router.navigate(['citas']);
-
-      } else {
-        Swal.fire({
-          title: 'Ha ocurrido un error',
-          text: 'La cita no ha sido actualizada',
-          icon: 'error',
-          confirmButtonText: 'Aceptar'
-        });
-      }
-    }, err => {
+    } else {
+      this.camposObligatorios = true;
       Swal.fire({
-        title: 'No se pudo conectar al servidor',
-        text: 'Por favor vuelve a intentarlo más tarde',
+        title: 'No se pudo enviar los datos',
+        text: 'Por favor revise que la información este correcta',
         icon: 'error',
         confirmButtonText: 'Aceptar'
       });
-    });
+    }
   }
 
   public volver(): void{
     localStorage.removeItem('IdCita');
     this.router.navigate(['citas']);
+  }
+
+  public validarControles(nombreControl: string): boolean {
+    return  (this.citaForm.get(nombreControl).invalid);
   }
 }
