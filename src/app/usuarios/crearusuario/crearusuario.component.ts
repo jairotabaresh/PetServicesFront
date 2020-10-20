@@ -61,7 +61,7 @@ export class CrearusuarioComponent implements OnInit {
             'error'
           )
         } else {
-          this.Enviar();
+          this.Guardar();
         }
       });
     } else {
@@ -74,40 +74,6 @@ export class CrearusuarioComponent implements OnInit {
     }
   }
 
-  public Enviar() {
-    if (this.usuarioForm.valid) {
-      this.correoService.CrearCorreo(this.correo).subscribe((respuesta: boolean) => {
-        if (respuesta) {
-          this.Guardar();
-          this.usuarioForm.reset();
-          this.correo = new Correo();
-        } else {
-          Swal.fire({
-            title: 'Ha ocurrido un error',
-            text: 'No se ha podido enviar la información',
-            icon: 'error',
-            confirmButtonText: 'Aceptar'
-          });
-        }
-      }, err => {
-        Swal.fire({
-          title: 'No se pudo conectar al servidor',
-          text: 'Por favor vuelve a intentarlo más tarde',
-          icon: 'error',
-          confirmButtonText: 'Aceptar'
-        });
-      });
-    } else {
-      this.camposObligatorios = true;
-      Swal.fire({
-        title: 'No se pudo enviar los datos',
-        text: 'Por favor revise que la información esté correcta',
-        icon: 'error',
-        confirmButtonText: 'Aceptar'
-      });
-    }
-  }
-
   public Guardar() {
     this.usuarioService.Crear(this.usuario).subscribe((respuesta: boolean) => {
       if (respuesta) {
@@ -116,6 +82,7 @@ export class CrearusuarioComponent implements OnInit {
           '',
           'success'
         ).then(() => {
+          this.Enviar(this.usuario.correo);
           window.location.reload();
         })
       }
@@ -126,6 +93,35 @@ export class CrearusuarioComponent implements OnInit {
         'error'
       )
       console.log("Error");
+    });
+  }
+
+  public Enviar(correo: String) {
+    this.correoService.CorreoRegistro(correo).subscribe((respuesta: boolean) => {
+      if (respuesta) {
+        Swal.fire({
+          title: 'Se envió correctamente',
+          text: 'Se ha enviado la información correctamente',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        });
+        this.usuarioForm.reset();
+        this.correo = new Correo();
+      } else {
+        Swal.fire({
+          title: 'Ha ocurrido un error',
+          text: 'No se ha podido enviar la información',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
+      }
+    }, err => {
+      Swal.fire({
+        title: 'No se pudo conectar al servidor',
+        text: 'Por favor vuelve a intentarlo más tarde',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
     });
   }
 

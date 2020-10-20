@@ -23,7 +23,7 @@ export class CorreoService {
     return this.http.post<boolean>(this.ruta + '/recuperar', correo);
   }
 
-  public CrearCorreo(correo: Correo){
-    return this.http.post<boolean>(this.ruta + '/crearCorreo', correo);
+  public CorreoRegistro(correo: String){
+    return this.http.post<boolean>(this.ruta + '/correoRegistro', correo);
   }
 }
