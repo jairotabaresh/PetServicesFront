@@ -22,4 +22,8 @@ export class CorreoService {
 
     return this.http.post<boolean>(this.ruta + '/recuperar', correo);
   }
+
+  public CorreoRegistro(correo: String){
+    return this.http.post<boolean>(this.ruta + '/correoRegistro', correo);
+  }
 }
