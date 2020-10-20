@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Mascota } from '../../Modelo/Mascota';
 import { MascotaService } from '../../Service/mascota.service';
-import { Usuario } from '../../Modelo/Usuario';
-import { UsuarioService } from '../../Service/usuario.service';
 import Swal from 'sweetalert2';
 import {FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
 
@@ -14,7 +12,6 @@ import {FormGroup, FormControl, Validators, ValidationErrors } from '@angular/fo
 })
 export class ModificarMascotaComponent implements OnInit {
 
-  public usuarios: Usuario[];
   public mascota: Mascota;
   public idUsuario = localStorage.getItem('Id');
   public rol = localStorage.getItem('Rol');
@@ -22,10 +19,8 @@ export class ModificarMascotaComponent implements OnInit {
   public camposObligatorios = false;
 
   constructor(private router: Router,
-              private mascotaService: MascotaService,
-              private usuarioService: UsuarioService) {
+              private mascotaService: MascotaService) {
       this.mascota = new Mascota();
-      this.mascota.usuario = new Usuario();
 
       if (this.idUsuario === null ){
         this.router.navigate(['iniciosesion']);
@@ -35,13 +30,11 @@ export class ModificarMascotaComponent implements OnInit {
         this.router.navigate(['app']);
       }
 
-      this.mascota.usuario = new Usuario();
       this.modificarMascotaForm = new FormGroup({
         nombre: new FormControl('', Validators.required),
         especie: new FormControl('', Validators.required),
         raza: new FormControl('', Validators.required),
-        edad: new FormControl('', [Validators.required, Validators.min(0), Validators.max(100)]),
-        usuario: new FormControl('', Validators.required)
+        edad: new FormControl('', [Validators.required, Validators.min(0), Validators.max(100)])
       });
 
     }
@@ -57,11 +50,6 @@ export class ModificarMascotaComponent implements OnInit {
     }, err => {
       console.log("Un error a ocurrido al cargar la mascota");
     });
-    this.usuarioService.Listar().subscribe((respuesta: Usuario[]) => {
-      this.usuarios = respuesta;
-    }, err => {
-      console.log("Un error a ocurrido al cargar la mascota");
-    })
   }
 
   public Volver() {
@@ -77,6 +65,7 @@ export class ModificarMascotaComponent implements OnInit {
             '',
             'success'
           )
+          this.router.navigate(['mascota']);
         }
         else {
           Swal.fire(
@@ -86,7 +75,6 @@ export class ModificarMascotaComponent implements OnInit {
           )
         }
       })
-      this.router.navigate(['mascota']);
     }
     else {
       this.camposObligatorios = true;
