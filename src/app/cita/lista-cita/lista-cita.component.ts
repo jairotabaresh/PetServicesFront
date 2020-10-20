@@ -45,7 +45,17 @@ export class ListaCitaComponent implements OnInit {
 
   public listarUsuario(): void{
     this.citaService.listarPorUsuario(parseInt(this.idUsuario, 0 )).subscribe((respuesta: Cita[]) => {
+      if (this.rol === 'Usuario' && respuesta.length > 0){
+        this.citas = new Array();
+        console.log(respuesta);
+        respuesta.forEach( cita => {
+          if ( cita.estado.nombre === 'Agendado'){
+            this.citas.push(cita);
+          }
+        });
+      } else {
       this.citas = respuesta;
+    }
       this.dtTrigger.next();
     }, err => {
       this.citas = new Array();

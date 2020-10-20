@@ -5,6 +5,7 @@ import { RolService } from '../../Service/rol.service';
 import { UsuarioService } from '../../Service/usuario.service';
 import { FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { CorreoService } from 'src/app/Service/correo.service';
 
 
 
@@ -23,7 +24,8 @@ export class CrearusuarioComponent implements OnInit {
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\']+(\.[^<>()[\]\\.,;:\s@\']+)*)|(\'.+\'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   constructor(private rolService: RolService,
-    private usuarioService: UsuarioService) {
+    private usuarioService: UsuarioService,
+    private correoService: CorreoService) {
     this.listarRol();
     this.usuario.rol = new Rol();
 
@@ -78,6 +80,7 @@ export class CrearusuarioComponent implements OnInit {
           '',
           'success'
         ).then(() => {
+          this.Enviar(this.usuario.correo);
           window.location.reload();
         })
       }
@@ -88,6 +91,34 @@ export class CrearusuarioComponent implements OnInit {
         'error'
       )
       console.log("Error");
+    });
+  }
+
+  public Enviar(correo: String) {
+    this.correoService.CorreoRegistro(correo).subscribe((respuesta: boolean) => {
+      if (respuesta) {
+        Swal.fire({
+          title: 'Se envió correctamente',
+          text: 'Se ha enviado la información correctamente',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        });
+        this.usuarioForm.reset();
+      } else {
+        Swal.fire({
+          title: 'Ha ocurrido un error',
+          text: 'No se ha podido enviar la información',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
+      }
+    }, err => {
+      Swal.fire({
+        title: 'No se pudo conectar al servidor',
+        text: 'Por favor vuelve a intentarlo más tarde',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
     });
   }
 
