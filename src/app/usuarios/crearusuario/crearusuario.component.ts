@@ -5,7 +5,6 @@ import { RolService } from '../../Service/rol.service';
 import { UsuarioService } from '../../Service/usuario.service';
 import { FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { Correo } from 'src/app/Modelo/Correo';
 import { CorreoService } from 'src/app/Service/correo.service';
 
 
@@ -17,7 +16,6 @@ import { CorreoService } from 'src/app/Service/correo.service';
 })
 
 export class CrearusuarioComponent implements OnInit {
-  public correo = new Correo();
   public usuario = new Usuario();
   public roles: Rol[];
   public usuarioForm: FormGroup;
@@ -106,7 +104,6 @@ export class CrearusuarioComponent implements OnInit {
           confirmButtonText: 'Aceptar'
         });
         this.usuarioForm.reset();
-        this.correo = new Correo();
       } else {
         Swal.fire({
           title: 'Ha ocurrido un error',
