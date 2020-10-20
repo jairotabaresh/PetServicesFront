@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  public idUsuario = localStorage.getItem('Id');
+  public rol = localStorage.getItem('Rol');
+
+  constructor(private router: Router) {
+    if (this.idUsuario !== null ){
+      this.router.navigate(['app']);
+    }
+  }
 
   ngOnInit(): void {
   }

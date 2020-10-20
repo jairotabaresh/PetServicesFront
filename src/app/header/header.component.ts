@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public idUsuario = localStorage.getItem('Id');
+  public rol = localStorage.getItem('Rol');
+
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
   }
 
+  public Cerrar(): void{
+    localStorage.clear();
+    window.location.reload();
+  }
 }

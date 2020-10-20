@@ -1,5 +1,6 @@
-import { isNull } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Usuario } from '../Modelo/Usuario';
 import { UsuarioService } from '../Service/usuario.service';
 import Swal from 'sweetalert2';
@@ -10,38 +11,53 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
   templateUrl: './iniciarsesion.component.html',
   styleUrls: ['./iniciarsesion.component.css']
 })
+
 export class IniciarsesionComponent implements OnInit {
 
   public usuario = new Usuario();
+  public idUsuario = localStorage.getItem('Id');
+  public rol = localStorage.getItem('Rol');
   public iniciosesionForm : FormGroup;
   public camposObligatorios = false;
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\']+(\.[^<>()[\]\\.,;:\s@\']+)*)|(\'.+\'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  
-  
-  constructor(private usuarioService: UsuarioService) {
+
+  constructor(private usuarioService: UsuarioService, private router: Router) {
     this.iniciosesionForm = new FormGroup({
-      contrasena: new FormControl('',Validators.required),
-      correo: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]) 
-    })
-    
+      contrasena: new FormControl('', Validators.required),
+      correo: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)])
+    });
+
+    if (this.idUsuario !== null ){
+      this.router.navigate(['app']);
+    }
+
    }
 
   ngOnInit(): void {
   }
 
   public Validar(){
-    if (this.iniciosesionForm.valid){   
+    if (this.iniciosesionForm.valid){
 
       this.usuarioService.buscarUsuario(this.usuario).subscribe((respuesta:Usuario)=> {
-      
-      if (respuesta.correo != this.usuario.correo){
-        Swal.fire(
-          'Correo no registrado o contraseña invalida',
-          '',
-          'success'
-        )
+
+      if (respuesta.correo !== this.usuario.correo){
+        Swal.fire({
+          title: 'Ha ocurrido un error',
+          text: 'El usuario y/o la contraseña son incorrectos',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
        } else {
-          console.log('Preguntar a Brahyan');
+        Swal.fire({
+          title: 'Bienvenido a PetSerivce',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        });
+
+        localStorage.setItem('Id', respuesta.id.toString());
+        localStorage.setItem('Rol', respuesta.rol.nombre);
+        this.router.navigate(['app']);
        }
     });
   } else{
@@ -49,7 +65,7 @@ export class IniciarsesionComponent implements OnInit {
     Swal.fire({
         title: 'No se pudo enviar los datos',
         text: 'Por favor revise que la información este correcta',
-        //icon: 'error',
+        icon: 'error',
         confirmButtonText: 'Aceptar'
     });
   }
