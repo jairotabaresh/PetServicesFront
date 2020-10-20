@@ -33,6 +33,7 @@ export class CrearusuarioComponent implements OnInit {
       nombre: new FormControl('', Validators.required),
       celular: new FormControl('', Validators.required),
       correo: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
+      direccion: new FormControl(''),
       rol: new FormControl('', Validators.required)
     });
   }
