@@ -83,32 +83,46 @@ export class AgendarCitasComponent implements OnInit {
 
   public Guardar(): void{
     if (this.citaForm.valid) {
-      this.citaService.Crear(this.cita).subscribe((respuesta: boolean) => {
-        if (respuesta){
+      let fechaActual = new Date();
+      let fecha: Date = new Date(this.cita.fecha);
+      if (fechaActual.getTime() - fecha.getTime() <= 0 ){
+        this.citaService.Crear(this.cita).subscribe((respuesta: boolean) => {
+          if (respuesta){
+            Swal.fire({
+              title: 'Se agendo correctamente',
+              text: 'Se ha agendado la cita correctamente',
+              icon: 'success',
+              confirmButtonText: 'Aceptar'
+            });
+            this.citaForm.reset();
+            this.cita = new Cita();
+            this.cita.servicio = new Servicio();
+            this.cita.estado = new Estado();
+            this.cita.mascota = new Mascota();
+          } else {
+            Swal.fire({
+              title: 'Ha ocurrido un error',
+              text: 'Ya hay una cita agendada para la fecha y hora seleccionada',
+              icon: 'error',
+              confirmButtonText: 'Aceptar'
+            });
+          }
+        }, err => {
           Swal.fire({
-            title: 'Se agendo correctamente',
-            text: 'Se ha agendado la cita correctamente',
-            icon: 'success',
-            confirmButtonText: 'Aceptar'
-          });
-          this.citaForm.reset();
-          this.cita = new Cita();
-        } else {
-          Swal.fire({
-            title: 'Ha ocurrido un error',
-            text: 'Ya hay una cita agendada para la fecha y hora seleccionada',
+            title: 'No se pudo conectar al servidor',
+            text: 'Por favor vuelve a intentarlo más tarde',
             icon: 'error',
             confirmButtonText: 'Aceptar'
           });
-        }
-      }, err => {
+        });
+      }else {
         Swal.fire({
-          title: 'No se pudo conectar al servidor',
-          text: 'Por favor vuelve a intentarlo más tarde',
+          title: 'No se pudo enviar los datos',
+          text: 'La fecha de la cita debe ser mayor a la fecha actual',
           icon: 'error',
           confirmButtonText: 'Aceptar'
         });
-      });
+      }
     } else {
       this.camposObligatorios = true;
       Swal.fire({
