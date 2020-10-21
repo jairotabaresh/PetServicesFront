@@ -143,44 +143,43 @@ export class MoficarCitasComponent implements OnInit {
     });
   }
 
-  public actualizar(): void{
-    if (this.citaForm.valid) {
-        this.citaService.Crear(this.cita).subscribe((respuesta: boolean) => {
-          if (respuesta){
-            Swal.fire({
-              title: 'Se actualizado correctamente',
-              text: 'Se ha actualizado la cita correctamente',
-              icon: 'success',
-              confirmButtonText: 'Aceptar'
-            });
-            localStorage.removeItem('IdCita');
-            this.router.navigate(['citas']);
-          } else {
-            Swal.fire({
-              title: 'Ha ocurrido un error',
-              text: 'La cita no ha sido actualizada',
-              icon: 'error',
-              confirmButtonText: 'Aceptar'
-            });
-          }
-        }, err => {
+  public actualizar(): void{ 
+    if ( this.cita.mascota.usuario.id === this.idUsuarioModificado) {
+      this.citaService.Crear(this.cita).subscribe((respuesta: boolean) => {
+        if (respuesta){
           Swal.fire({
-            title: 'No se pudo conectar al servidor',
-            text: 'Por favor vuelve a intentarlo más tarde',
+            title: 'Se actualizado correctamente',
+            text: 'Se ha actualizado la cita correctamente',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          });
+          localStorage.removeItem('IdCita');
+          this.router.navigate(['citas']);
+        } else {
+          Swal.fire({
+            title: 'Ha ocurrido un error',
+            text: 'La cita no ha sido actualizada',
             icon: 'error',
             confirmButtonText: 'Aceptar'
           });
+        }
+      }, err => {
+        Swal.fire({
+          title: 'No se pudo conectar al servidor',
+          text: 'Por favor vuelve a intentarlo más tarde',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
         });
-    } else {
-      this.camposObligatorios = true;
-      Swal.fire({
-        title: 'No se pudo enviar los datos',
-        text: 'Por favor revise que la información este correcta',
-        icon: 'error',
-        confirmButtonText: 'Aceptar'
       });
-    }
+  } else {
+    Swal.fire({
+      title: 'Ha ocurrido un error',
+      text: 'Debes seleccionar una mascota',
+      icon: 'error',
+      confirmButtonText: 'Aceptar'
+    });
   }
+}
 
   public volver(): void{
     localStorage.removeItem('IdCita');
