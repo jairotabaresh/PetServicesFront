@@ -93,12 +93,14 @@ export class AgendarCitasComponent implements OnInit {
               text: 'Se ha agendado la cita correctamente',
               icon: 'success',
               confirmButtonText: 'Aceptar'
-            });
-            this.citaForm.reset();
-            this.cita = new Cita();
-            this.cita.servicio = new Servicio();
-            this.cita.estado = new Estado();
-            this.cita.mascota = new Mascota();
+            }).then(() => {
+              this.citaForm.reset();
+              this.cita = new Cita();
+              this.cita.servicio = new Servicio();
+              this.cita.estado = new Estado();
+              this.cita.mascota = new Mascota();
+              window.location.reload();
+            })
           } else {
             Swal.fire({
               title: 'Ha ocurrido un error',
