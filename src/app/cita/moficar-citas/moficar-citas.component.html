@@ -13,12 +13,12 @@
 <div class="container text-center">
     <br>
     <h1>Modificar Citas</h1>
-    <form [formGroup]="citaForm">
+    <form>
         <div class="row">
 
             <div class="col-md-12">
                 <div class="form-group">
-                    <select formControlName="usuario" name="usuario" [(ngModel)]="idUsuarioModificado" class="custom-select d-block form-control" *ngIf="rol === 'Administrador'" (change)="listarMascota()">
+                    <select name="usuario" [(ngModel)]="idUsuarioModificado" class="custom-select d-block form-control" *ngIf="rol === 'Administrador'" (change)="listarMascota()" disabled>
                         <option  *ngFor="let usuario of usuarios" [value]="usuario.id">{{usuario.nombre}}</option>
                     </select>
 
@@ -30,7 +30,7 @@
 
             <div class="col-md-12">
                 <div class="form-group">
-                    <select formControlName="mascota" name="idMascota" [(ngModel)]="cita.mascota.id" class="custom-select d-block form-control" *ngIf="rol === 'Administrador'">
+                    <select name="idMascota" [(ngModel)]="cita.mascota.id" class="custom-select d-block form-control" *ngIf="rol === 'Administrador'" disabled>
                         <option *ngFor="let mascota of mascotas" [value]="mascota.id">{{mascota.nombre}}</option>
                     </select>
 
@@ -42,7 +42,7 @@
 
             <div class="col-md-12">
                 <div class="form-group">
-                    <input formControlName="fecha" name="fecha" [(ngModel)]="cita.fecha" type="date" class="form-control" placeholder="Fecha Cita" *ngIf="rol === 'Administrador'" disabled>
+                    <input name="fecha" [(ngModel)]="cita.fecha" type="date" class="form-control" placeholder="Fecha Cita" *ngIf="rol === 'Administrador'" disabled>
                 </div>
 
                 <div class="text-danger" *ngIf="camposObligatorios && validarControles('fecha')">
@@ -52,7 +52,7 @@
 
             <div class="col-md-12">
                 <div class="form-group">
-                    <input formControlName="hora" name="hora" [(ngModel)]="cita.hora" type="time" step="1" class="form-control" placeholder="Hora Cita" *ngIf="rol === 'Administrador'" disabled>
+                    <input name="hora" [(ngModel)]="cita.hora" type="time" step="1" class="form-control" placeholder="Hora Cita" *ngIf="rol === 'Administrador'" disabled>
                 </div>
 
                 <div class="text-danger" *ngIf="camposObligatorios && validarControles('hora')">
@@ -64,7 +64,7 @@
 
             <div class="col-md-12">
                 <div class="form-group">
-                    <select formControlName="servicio" name="servicio" [(ngModel)]="cita.servicio.id" class="custom-select d-block form-control" *ngIf="rol === 'Administrador'">
+                    <select name="servicio" [(ngModel)]="cita.servicio.id" class="custom-select d-block form-control" *ngIf="rol === 'Administrador'">
                         <option  *ngFor="let servicio of servicios" [value]="servicio.id">{{servicio.nombre}}</option>
                     </select>
 
@@ -75,7 +75,7 @@
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <select formControlName="estado" name="estado" [(ngModel)]="cita.estado.id" class="custom-select d-block form-control">
+                    <select name="estado" [(ngModel)]="cita.estado.id" class="custom-select d-block form-control">
                         <option  *ngFor="let estado of estados" [value]="estado.id">{{estado.nombre}}</option>
                     </select>
 
@@ -87,7 +87,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <div class="form-group">
-                        <textarea formControlName="comentarios" name="comentarios" [(ngModel)]="cita.comentario" class="form-control" placeholder="Comentario" rows="4"></textarea>
+                        <textarea name="comentarios" [(ngModel)]="cita.comentario" class="form-control" placeholder="Comentario" rows="4"></textarea>
                     </div>
                 </div>
             </div>
